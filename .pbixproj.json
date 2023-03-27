@@ -33,8 +33,7 @@
       "environments": {
         "UAT": {
           "workspace": "Deployment Test",
-          "displayName": "Finance [UAT]",
-          "refresh": true
+          "displayName": "Finance [UAT]"
         }
       }
     }
