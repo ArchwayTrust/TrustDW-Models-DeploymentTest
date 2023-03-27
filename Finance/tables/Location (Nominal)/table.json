@@ -1,0 +1,19 @@
+{
+  "name": "Location (Nominal)",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Location (Nominal)",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

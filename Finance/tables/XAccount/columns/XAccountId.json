@@ -1,0 +1,9 @@
+{
+  "name": "XAccountId",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "XAccountId",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

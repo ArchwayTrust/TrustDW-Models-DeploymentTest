@@ -1,0 +1,9 @@
+{
+  "name": "ForcastNameId",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "ForcastNameId",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

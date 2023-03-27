@@ -1,0 +1,19 @@
+{
+  "name": "Budget Name",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Budget Name",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

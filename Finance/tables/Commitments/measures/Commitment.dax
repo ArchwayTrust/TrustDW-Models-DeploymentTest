@@ -1,0 +1,4 @@
+SUMX(
+    Commitments,
+    Commitments[Value] * Commitments[Commited]
+)

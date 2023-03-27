@@ -1,0 +1,8 @@
+{
+  "name": "PeriodEndDate",
+  "dataType": "dateTime",
+  "isHidden": true,
+  "sourceColumn": "PeriodEndDate",
+  "isAvailableInMdx": false,
+  "encodingHint": "value"
+}

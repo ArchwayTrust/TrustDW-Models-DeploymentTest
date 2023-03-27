@@ -1,0 +1,6 @@
+{
+  "name": "MaximumDays",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "MaximumDays"
+}

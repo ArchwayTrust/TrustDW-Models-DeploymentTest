@@ -1,0 +1,8 @@
+{
+  "name": "EFA Benchmark Return Group",
+  "dataType": "string",
+  "sourceColumn": "EFA Benchmark Return Group",
+  "sortByColumn": "EFA Benchmark Return Code",
+  "displayFolder": "Analysis Codes",
+  "summarizeBy": "none"
+}

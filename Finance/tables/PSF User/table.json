@@ -1,0 +1,27 @@
+{
+  "name": "PSF User",
+  "isHidden": true,
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"fromTable\": \"PSF User\",",
+        "    \"fromColumn\": \"Latest PSF Use\",",
+        "    \"toTable\": \"Calendar\",",
+        "    \"toColumn\": \"Date\"",
+        "  }",
+        "]"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "name": "PSF User",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

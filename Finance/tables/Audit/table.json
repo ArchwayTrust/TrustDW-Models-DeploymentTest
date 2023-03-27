@@ -1,0 +1,21 @@
+{
+  "name": "Audit",
+  "description": "Update times and dates.",
+  "isHidden": true,
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Audit",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "name": "XAccount",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "XAccount",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "AuditId",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "AuditId",
+  "isAvailableInMdx": false,
+  "encodingHint": "value"
+}

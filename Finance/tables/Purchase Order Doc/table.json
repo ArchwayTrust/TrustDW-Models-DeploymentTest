@@ -1,0 +1,17 @@
+{
+  "name": "Purchase Order Doc",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Purchase Order Doc",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Period End Date",
+  "dataType": "dateTime",
+  "isHidden": true,
+  "sourceColumn": "Period End Date",
+  "formatString": "Long Date",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "Automatic"
+    },
+    {
+      "name": "UnderlyingDateTimeDataType",
+      "value": "Date"
+    },
+    {
+      "name": "Format",
+      "value": "<Format Format=\"DateTimeGeneralPattern\"><DateTimes><DateTime LCID=\"2057\" Group=\"LongDate\" FormatString=\"D\" /></DateTimes></Format>"
+    },
+    {
+      "name": "PBI_ChangedProperties",
+      "value": "[\"IsHidden\"]"
+    }
+  ]
+}

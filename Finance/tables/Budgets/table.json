@@ -1,0 +1,75 @@
+{
+  "name": "Budgets",
+  "description": [
+    "Budget data from PSF. ",
+    "Only pulls through budget infromation for codes which don't contain FC or FOR."
+  ],
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"AccountId\",",
+        "    \"toTable\": \"Account\",",
+        "    \"toColumn\": \"AccountId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"AccountLocationId\",",
+        "    \"toTable\": \"Location (Account)\",",
+        "    \"toColumn\": \"AccountLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"AuditId\",",
+        "    \"toTable\": \"Audit\",",
+        "    \"toColumn\": \"AuditId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"BudgetNameId\",",
+        "    \"toTable\": \"Budget Name\",",
+        "    \"toColumn\": \"BudgetNameId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"NominalId\",",
+        "    \"toTable\": \"Nominal\",",
+        "    \"toColumn\": \"NominalId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"NominalLocationId\",",
+        "    \"toTable\": \"Location (Nominal)\",",
+        "    \"toColumn\": \"NominalLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"Period End Date\",",
+        "    \"toTable\": \"Calendar\",",
+        "    \"toColumn\": \"Date\"",
+        "  },",
+        "  {",
+        "    \"toCardinality\": \"many\",",
+        "    \"fromTable\": \"Budgets\",",
+        "    \"fromColumn\": \"SecurityId\",",
+        "    \"toTable\": \"UserGroupSecurity\",",
+        "    \"toColumn\": \"SecurityId\"",
+        "  }",
+        "]"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Budgets",
+      "mode": "import",
+      "queryGroup": "Finance\\Facts",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

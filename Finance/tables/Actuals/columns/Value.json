@@ -1,0 +1,24 @@
+{
+  "name": "Value",
+  "dataType": "decimal",
+  "isHidden": true,
+  "sourceColumn": "Value",
+  "formatString": "#,##0.00",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "User"
+    },
+    {
+      "name": "Format",
+      "value": "<Format Format=\"General\" />"
+    },
+    {
+      "name": "PBI_ChangedProperties",
+      "value": "[\"IsHidden\"]"
+    }
+  ]
+}

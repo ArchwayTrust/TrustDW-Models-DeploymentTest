@@ -1,0 +1,19 @@
+{
+  "name": "Nominal",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Nominal",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

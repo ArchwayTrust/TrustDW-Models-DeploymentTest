@@ -1,0 +1,8 @@
+{
+  "name": "Latest PSF Use",
+  "dataType": "dateTime",
+  "sourceColumn": "Latest PSF Use",
+  "formatString": "dd/mm/yyyy",
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

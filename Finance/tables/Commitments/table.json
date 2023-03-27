@@ -1,0 +1,63 @@
+{
+  "name": "Commitments",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"AccountId\",",
+        "    \"toTable\": \"Account\",",
+        "    \"toColumn\": \"AccountId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"AccountLocationId\",",
+        "    \"toTable\": \"Location (Account)\",",
+        "    \"toColumn\": \"AccountLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"CommitmentDocumentId\",",
+        "    \"toTable\": \"Purchase Order Doc\",",
+        "    \"toColumn\": \"CommitmentDocumentId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"NominalId\",",
+        "    \"toTable\": \"Nominal\",",
+        "    \"toColumn\": \"NominalId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"NominalLocationId\",",
+        "    \"toTable\": \"Location (Nominal)\",",
+        "    \"toColumn\": \"NominalLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"PeriodEndDate\",",
+        "    \"toTable\": \"Calendar\",",
+        "    \"toColumn\": \"Date\"",
+        "  },",
+        "  {",
+        "    \"toCardinality\": \"many\",",
+        "    \"fromTable\": \"Commitments\",",
+        "    \"fromColumn\": \"SecurityId\",",
+        "    \"toTable\": \"UserGroupSecurity\",",
+        "    \"toColumn\": \"SecurityId\"",
+        "  }",
+        "]"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Commitments",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

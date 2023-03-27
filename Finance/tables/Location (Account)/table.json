@@ -1,0 +1,19 @@
+{
+  "name": "Location (Account)",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Location (Account)",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

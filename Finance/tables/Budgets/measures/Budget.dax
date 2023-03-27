@@ -1,0 +1,10 @@
+VAR _Budget = SUM( Budgets[Value] )
+
+VAR _BudgetDisplay =
+    IF(
+        ISFILTERED( 'Actual Description' ) || ISFILTERED ( XAccount ),
+        BLANK( ),
+        _Budget
+    )
+
+RETURN _BudgetDisplay

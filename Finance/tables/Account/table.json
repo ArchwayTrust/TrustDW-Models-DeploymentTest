@@ -1,0 +1,19 @@
+{
+  "name": "Account",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Account",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

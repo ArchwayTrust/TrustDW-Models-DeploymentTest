@@ -1,0 +1,3 @@
+//VAR _DisplayMult = SELECTEDVALUE ( Nominal[Display Multiplier], -1)
+VAR _Result = ( [YE Budget] - [YE Forecast] )
+RETURN _Result

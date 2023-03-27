@@ -1,0 +1,8 @@
+{
+  "name": "Document Date",
+  "dataType": "dateTime",
+  "sourceColumn": "Document Date",
+  "formatString": "dd/mm/yyyy",
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

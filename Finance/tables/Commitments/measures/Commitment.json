@@ -1,0 +1,5 @@
+{
+  "name": "Commitment",
+  "description": "Includes GRN and POAUT.",
+  "formatString": "#,##0.00; +#,##0.00"
+}

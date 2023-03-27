@@ -1,0 +1,7 @@
+VAR _Result = 
+    DIVIDE(
+        [YTD Actual],
+        [YE Budget]
+    )
+    
+RETURN _Result

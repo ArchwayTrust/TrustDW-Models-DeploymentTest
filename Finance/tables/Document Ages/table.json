@@ -1,0 +1,19 @@
+{
+  "name": "Document Ages",
+  "description": "Document age groups for those with a status code of Open or Disputed.",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Document Ages",
+      "mode": "import",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

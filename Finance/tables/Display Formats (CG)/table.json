@@ -1,0 +1,21 @@
+{
+  "name": "Display Formats (CG)",
+  "calculationGroup": {
+    "precedence": 10
+  },
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Partition",
+      "mode": "import",
+      "source": {
+        "type": "calculationGroup"
+      }
+    }
+  ]
+}

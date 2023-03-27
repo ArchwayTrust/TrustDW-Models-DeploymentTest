@@ -1,0 +1,39 @@
+{
+  "name": "Students",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"toCardinality\": \"many\",",
+        "    \"fromTable\": \"Students\",",
+        "    \"fromColumn\": \"End of Month\",",
+        "    \"toTable\": \"Calendar\",",
+        "    \"toColumn\": \"End of Month\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Students\",",
+        "    \"fromColumn\": \"LocationId\",",
+        "    \"toTable\": \"Location (Account)\",",
+        "    \"toColumn\": \"AccountLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Students\",",
+        "    \"fromColumn\": \"LocationId\",",
+        "    \"toTable\": \"Location (Nominal)\",",
+        "    \"toColumn\": \"NominalLocationId\"",
+        "  }",
+        "]"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Students",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

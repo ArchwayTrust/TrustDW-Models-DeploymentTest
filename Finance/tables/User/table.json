@@ -1,0 +1,18 @@
+{
+  "name": "User",
+  "description": "RLS User Table. Security by default is set to not propagate. You need to add a page/report filter onto Email as \"Is Not Blank\" to turn RLS on.",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "User",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

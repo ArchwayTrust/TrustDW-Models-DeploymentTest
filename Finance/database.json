@@ -1,0 +1,90 @@
+{
+  "name": "Finance",
+  "id": "139ae211-cd26-463a-8df7-9eb0f09c5d75",
+  "compatibilityLevel": 1601,
+  "model": {
+    "name": "Finance",
+    "description": "Analytics model using data from PSF. Test",
+    "culture": "en-GB",
+    "dataAccessOptions": {
+      "legacyRedirects": false,
+      "returnErrorValuesAsNull": false
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "sourceQueryCulture": "en-GB",
+    "extendedProperties": [
+      {
+        "type": "json",
+        "name": "TabularEditor_DeploymentMetadata",
+        "value": {
+          "User": "BCA\\bdobbs",
+          "Time": "2023-02-20T14:46:35.536326+00:00",
+          "ClientMachine": "ALT-LAP-S44831",
+          "DeploymentMode": "SaveUI",
+          "TabularEditorBuild": "3.4.8440.26878"
+        }
+      }
+    ],
+    "queryGroups": [
+      {
+        "folder": "Conformed",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "folder": "Finance",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "folder": "Finance\\Dimensions",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "folder": "Finance\\Facts",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "BestPracticeAnalyzer_IgnoreRules",
+        "value": "{\"RuleIDs\":[]}"
+      },
+      {
+        "name": "BestPracticeAnalyzer_ExternalRuleFiles",
+        "value": "[\"C:\\\\Users\\\\bdobbs\\\\Downloads\\\\BPARules-standard.json\"]"
+      },
+      {
+        "name": "TabularEditor_SerializeOptions",
+        "value": "{\"IgnoreInferredObjects\":true,\"IgnoreInferredProperties\":true,\"IgnoreTimestamps\":true,\"SplitMultilineStrings\":true,\"PrefixFilenames\":false,\"LocalTranslations\":true,\"LocalPerspectives\":true,\"LocalRelationships\":true,\"Levels\":[\"Data Sources\",\"Shared Expressions\",\"Perspectives\",\"Relationships\",\"Roles\",\"Tables\",\"Tables/Columns\",\"Tables/Hierarchies\",\"Tables/Measures\",\"Tables/Partitions\",\"Tables/Calculation Items\",\"Translations\"]}"
+      },
+      {
+        "name": "TabularEditor_Cultures",
+        "value": "[\"en-GB\"]"
+      },
+      {
+        "name": "TabularEditor_Perspectives",
+        "value": "[]"
+      }
+    ]
+  }
+}

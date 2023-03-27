@@ -1,0 +1,7 @@
+{
+  "name": "Document Number",
+  "dataType": "int64",
+  "sourceColumn": "Document Number",
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

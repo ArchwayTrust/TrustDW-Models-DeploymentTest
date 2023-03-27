@@ -1,0 +1,5 @@
+{
+  "name": "Variance",
+  "description": "Actual Variance from Budget",
+  "formatString": "#,##0.00"
+}

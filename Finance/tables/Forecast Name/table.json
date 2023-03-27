@@ -1,0 +1,17 @@
+{
+  "name": "Forecast Name",
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": "[]"
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Forecast Name",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

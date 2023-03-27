@@ -1,0 +1,74 @@
+{
+  "name": "Forecasts",
+  "description": [
+    "Forecast data from PSF. ",
+    "Only pulls through those that have codes containing FC or FOR.",
+    ""
+  ],
+  "annotations": [
+    {
+      "name": "TabularEditor_Relationships",
+      "value": [
+        "[",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"AccountId\",",
+        "    \"toTable\": \"Account\",",
+        "    \"toColumn\": \"AccountId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"AccountLocationId\",",
+        "    \"toTable\": \"Location (Account)\",",
+        "    \"toColumn\": \"AccountLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"AuditId\",",
+        "    \"toTable\": \"Audit\",",
+        "    \"toColumn\": \"AuditId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"ForcastNameId\",",
+        "    \"toTable\": \"Forecast Name\",",
+        "    \"toColumn\": \"ForecastNameId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"NominalId\",",
+        "    \"toTable\": \"Nominal\",",
+        "    \"toColumn\": \"NominalId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"NominalLocationId\",",
+        "    \"toTable\": \"Location (Nominal)\",",
+        "    \"toColumn\": \"NominalLocationId\"",
+        "  },",
+        "  {",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"Period End Date\",",
+        "    \"toTable\": \"Calendar\",",
+        "    \"toColumn\": \"Date\"",
+        "  },",
+        "  {",
+        "    \"toCardinality\": \"many\",",
+        "    \"fromTable\": \"Forecasts\",",
+        "    \"fromColumn\": \"SecurityId\",",
+        "    \"toTable\": \"UserGroupSecurity\",",
+        "    \"toColumn\": \"SecurityId\"",
+        "  }",
+        "]"
+      ]
+    }
+  ],
+  "partitions": [
+    {
+      "name": "Forecasts",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}
