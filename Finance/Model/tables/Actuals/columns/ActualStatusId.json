@@ -1,0 +1,6 @@
+{
+  "name": "ActualStatusId",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "ActualStatusId"
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Actual Description",
+  "description": "Line descriptions for each actual.",
+  "partitions": [
+    {
+      "name": "Actual Description",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Budget",
+  "description": [
+    "Sum of budget values from PSF. ",
+    "(Not division of year end)"
+  ],
+  "formatString": "#,##0.00"
+}

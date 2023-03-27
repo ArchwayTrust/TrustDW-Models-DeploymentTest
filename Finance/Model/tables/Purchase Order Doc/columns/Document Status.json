@@ -1,0 +1,5 @@
+{
+  "name": "Document Status",
+  "dataType": "string",
+  "sourceColumn": "Document Status"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Employee No",
+  "dataType": "string",
+  "sourceColumn": "Employee No",
+  "summarizeBy": "none"
+}

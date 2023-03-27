@@ -1,0 +1,23 @@
+VAR _tblDocs = 
+CALCULATETABLE(
+    SUMMARIZE(
+        Actuals,
+        Actuals[DocumentId],
+        Actuals[ReqDocDate],
+        Actuals[DocumentDate]
+    ),
+    NOT ( ISBLANK( Actuals[ReqDocDate] ) )
+)
+
+VAR _NumDocs = COUNTROWS ( _tblDocs )
+VAR _NumLate = 
+    COUNTROWS(
+        FILTER(
+            _tblDocs,
+            Actuals[ReqDocDate] > Actuals[DocumentDate]
+        )
+    )
+    
+VAR _Result = DIVIDE (_NumLate, _NumDocs)
+
+RETURN _Result

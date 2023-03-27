@@ -1,0 +1,6 @@
+{
+  "name": "Document Type",
+  "dataType": "string",
+  "sourceColumn": "Document Type",
+  "summarizeBy": "none"
+}

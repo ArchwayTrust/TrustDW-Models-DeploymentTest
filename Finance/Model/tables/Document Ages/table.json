@@ -1,0 +1,13 @@
+{
+  "name": "Document Ages",
+  "description": "Document age groups for those with a status code of Open or Disputed.",
+  "partitions": [
+    {
+      "name": "Document Ages",
+      "mode": "import",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

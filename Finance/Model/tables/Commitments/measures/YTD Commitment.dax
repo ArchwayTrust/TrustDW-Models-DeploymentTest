@@ -1,0 +1,1 @@
+CALCULATE( [Commitment], DATESYTD( Calendar[Date], "31-Aug" ) )

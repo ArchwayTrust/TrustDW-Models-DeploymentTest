@@ -1,0 +1,6 @@
+{
+  "name": "GRNDocDate",
+  "dataType": "dateTime",
+  "isHidden": true,
+  "sourceColumn": "GRNDocDate"
+}

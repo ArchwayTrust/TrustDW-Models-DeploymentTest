@@ -1,0 +1,6 @@
+{
+  "name": "ReqDocDate",
+  "dataType": "dateTime",
+  "isHidden": true,
+  "sourceColumn": "ReqDocDate"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "MinimumDays",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "MinimumDays"
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Location Code (Nominal)",
+  "dataType": "string",
+  "sourceColumn": "Academy Code"
+}

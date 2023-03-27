@@ -1,0 +1,4 @@
+CALCULATE(
+    MAX( Audit[Extraction Date Time] ),
+    TREATAS( DISTINCT( Actuals[AuditId] ), Audit[AuditId] )
+)

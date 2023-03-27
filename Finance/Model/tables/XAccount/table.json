@@ -1,0 +1,11 @@
+{
+  "name": "XAccount",
+  "partitions": [
+    {
+      "name": "XAccount",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

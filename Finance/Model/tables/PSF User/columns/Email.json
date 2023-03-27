@@ -1,0 +1,6 @@
+{
+  "name": "Email",
+  "dataType": "string",
+  "sourceColumn": "Email",
+  "summarizeBy": "none"
+}

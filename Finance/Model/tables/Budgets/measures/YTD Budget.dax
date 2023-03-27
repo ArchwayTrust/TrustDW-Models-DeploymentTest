@@ -1,0 +1,16 @@
+VAR _LatestVisibleMonthEnd = MAX( Calendar[End of Month] )
+VAR _LatestVisibleFY = MAX ( Calendar[Financial Year] )
+VAR _VisibleMonths = 
+    CALCULATE(
+        DISTINCTCOUNT( Calendar[End of Month] ),
+        REMOVEFILTERS ( Calendar ),
+        Calendar[Financial Year] = _LatestVisibleFY,
+        Calendar[End of Month] <= _LatestVisibleMonthEnd
+    )
+
+
+VAR _YTDBudget = 
+    DIVIDE( [YE Budget] * _VisibleMonths, 12 )
+    
+RETURN
+    _YTDBudget

@@ -1,0 +1,154 @@
+{
+  "name": "Display Formats (CG)",
+  "calculationGroup": {
+    "precedence": 10,
+    "calculationItems": [
+      {
+        "name": "Raw PSF",
+        "expression": "SELECTEDMEASURE()",
+        "ordinal": 0
+      },
+      {
+        "name": "Apply sign changes and show as 1000s",
+        "expression": [
+          "VAR _MeasureName = SELECTEDMEASURENAME()",
+          "VAR _MeasureValue = SELECTEDMEASURE()",
+          "",
+          "VAR _Ignore = ",
+          "        CALCULATE (",
+          "            ISEMPTY ( 'Measure Details' ),",
+          "            'Measure Details'[Measure Name] = _MeasureName,",
+          "            'Measure Details'[Allow Sign Change]",
+          "        )",
+          "",
+          "VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )",
+          "",
+          "VAR _Result = ",
+          "    IF(",
+          "        _Ignore,",
+          "        _MeasureValue,",
+          "        _MeasureValue * _DisplayMultiplier",
+          "    )",
+          "",
+          "RETURN _Result"
+        ],
+        "ordinal": 4,
+        "formatStringDefinition": {
+          "expression": [
+            "VAR _MeasureName = SELECTEDMEASURENAME()",
+            "VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()",
+            "",
+            "",
+            "VAR _Ignore = ",
+            "         CALCULATE (",
+            "            ISEMPTY ( 'Measure Details' ),",
+            "            'Measure Details'[Measure Name] = _MeasureName,",
+            "            'Measure Details'[Allow Scale Change]",
+            "        )",
+            "   ",
+            "VAR _CorrectMagnitude = ",
+            "    IF(",
+            "        _Ignore,",
+            "        _MeasureFormat,",
+            "        \"#,0,\"",
+            "    )",
+            "",
+            "RETURN _CorrectMagnitude"
+          ]
+        }
+      },
+      {
+        "name": "Apply sign changes",
+        "expression": [
+          "VAR _MeasureName = SELECTEDMEASURENAME()",
+          "VAR _MeasureValue = SELECTEDMEASURE()",
+          "",
+          "VAR _Ignore = ",
+          "        CALCULATE (",
+          "            ISEMPTY ( 'Measure Details' ),",
+          "            'Measure Details'[Measure Name] = _MeasureName,",
+          "            'Measure Details'[Allow Sign Change]",
+          "        )                   ",
+          "",
+          "VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )",
+          "",
+          "VAR _Result = ",
+          "    IF(",
+          "        _Ignore,",
+          "        _MeasureValue,",
+          "        _MeasureValue * _DisplayMultiplier",
+          "    )",
+          "",
+          "RETURN _Result"
+        ],
+        "ordinal": 3
+      },
+      {
+        "name": "Invert PSF",
+        "expression": [
+          "VAR _MeasureName = SELECTEDMEASURENAME()",
+          "VAR _MeasureValue = SELECTEDMEASURE()",
+          "",
+          "VAR _Ignore = ",
+          "        CALCULATE (",
+          "            ISEMPTY ( 'Measure Details' ),",
+          "            'Measure Details'[Measure Name] = _MeasureName,",
+          "            'Measure Details'[Allow Sign Change]",
+          "        )",
+          "                    ",
+          "RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)"
+        ],
+        "ordinal": 1
+      },
+      {
+        "name": "Invert PSF and show as 1000s",
+        "expression": [
+          "VAR _MeasureName = SELECTEDMEASURENAME()",
+          "VAR _MeasureValue = SELECTEDMEASURE()",
+          "",
+          "VAR _Ignore = ",
+          "        CALCULATE (",
+          "            ISEMPTY ( 'Measure Details' ),",
+          "            'Measure Details'[Measure Name] = _MeasureName,",
+          "            'Measure Details'[Allow Sign Change]",
+          "        )",
+          "                    ",
+          "RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)"
+        ],
+        "ordinal": 2,
+        "formatStringDefinition": {
+          "expression": [
+            "VAR _MeasureName = SELECTEDMEASURENAME()",
+            "VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()",
+            "",
+            "",
+            "VAR _Ignore = ",
+            "         CALCULATE (",
+            "            ISEMPTY ( 'Measure Details' ),",
+            "            'Measure Details'[Measure Name] = _MeasureName,",
+            "            'Measure Details'[Allow Scale Change]",
+            "        )",
+            "   ",
+            "VAR _CorrectMagnitude = ",
+            "    IF(",
+            "        _Ignore,",
+            "        _MeasureFormat,",
+            "        \"#,0,\"",
+            "    )",
+            "",
+            "RETURN _CorrectMagnitude"
+          ]
+        }
+      }
+    ]
+  },
+  "partitions": [
+    {
+      "name": "Partition",
+      "mode": "import",
+      "source": {
+        "type": "calculationGroup"
+      }
+    }
+  ]
+}

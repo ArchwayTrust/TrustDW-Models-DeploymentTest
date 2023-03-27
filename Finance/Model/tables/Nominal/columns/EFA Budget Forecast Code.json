@@ -1,0 +1,7 @@
+{
+  "name": "EFA Budget Forecast Code",
+  "dataType": "string",
+  "sourceColumn": "EFA Budget Forecast Code",
+  "displayFolder": "Analysis Codes",
+  "summarizeBy": "none"
+}

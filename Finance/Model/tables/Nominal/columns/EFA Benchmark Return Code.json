@@ -1,0 +1,7 @@
+{
+  "name": "EFA Benchmark Return Code",
+  "dataType": "string",
+  "sourceColumn": "EFA Benchmark Return Code",
+  "displayFolder": "Analysis Codes",
+  "summarizeBy": "none"
+}

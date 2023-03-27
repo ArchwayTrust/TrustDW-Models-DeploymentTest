@@ -1,0 +1,5 @@
+{
+  "name": "YTD Actual",
+  "formatString": "#,##0.00",
+  "displayFolder": "Time Intelligence"
+}

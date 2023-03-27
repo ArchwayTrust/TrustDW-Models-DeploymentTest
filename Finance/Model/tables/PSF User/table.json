@@ -1,0 +1,12 @@
+{
+  "name": "PSF User",
+  "isHidden": true,
+  "partitions": [
+    {
+      "name": "PSF User",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

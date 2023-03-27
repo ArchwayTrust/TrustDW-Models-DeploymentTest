@@ -1,0 +1,6 @@
+{
+  "name": "YE Forecast",
+  "description": "Takes actual YTD and adds on forecast for future periods.",
+  "formatString": "#,##0.00",
+  "displayFolder": "Time Intelligence"
+}

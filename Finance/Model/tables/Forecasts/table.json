@@ -1,0 +1,16 @@
+{
+  "name": "Forecasts",
+  "description": [
+    "Forecast data from PSF. ",
+    "Only pulls through those that have codes containing FC or FOR.",
+    ""
+  ],
+  "partitions": [
+    {
+      "name": "Forecasts",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

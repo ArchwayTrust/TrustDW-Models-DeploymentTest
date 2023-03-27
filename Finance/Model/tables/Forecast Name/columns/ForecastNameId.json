@@ -1,0 +1,12 @@
+{
+  "name": "ForecastNameId",
+  "dataType": "int64",
+  "isHidden": true,
+  "isUnique": true,
+  "isKey": true,
+  "isNullable": false,
+  "sourceColumn": "ForecastNameId",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

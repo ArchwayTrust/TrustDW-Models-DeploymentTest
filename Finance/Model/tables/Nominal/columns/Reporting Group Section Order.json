@@ -1,0 +1,8 @@
+{
+  "name": "Reporting Group Section Order",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "Reporting Group Section Order",
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

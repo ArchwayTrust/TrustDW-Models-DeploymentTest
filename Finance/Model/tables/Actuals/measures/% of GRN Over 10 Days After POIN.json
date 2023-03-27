@@ -1,0 +1,5 @@
+{
+  "name": "% of GRN Over 10 Days After POIN",
+  "formatString": "#,##0.0 %",
+  "displayFolder": "Team Metrics"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "DFE Chart of Accounts Group",
+  "dataType": "string",
+  "sourceColumn": "DFE Chart of Accounts Group",
+  "sortByColumn": "DFE Chart of Accounts Code",
+  "displayFolder": "Analysis Codes",
+  "summarizeBy": "none"
+}
