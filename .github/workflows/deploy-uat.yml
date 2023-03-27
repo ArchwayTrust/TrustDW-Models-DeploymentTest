@@ -16,7 +16,7 @@ on:
         default: true
 
 env:
-  PROFILE: UAT
+  PROFILE: Test
 
 jobs:
   Deployment:
