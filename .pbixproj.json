@@ -5,8 +5,8 @@
     "Finance": {
       "mode": "Dataset",
       "source": {
-        "type": "Folder",
-        "path": "./Finance"
+        "type": "File",
+        "path": "./Finance/Finance.bim"
       },
       "authentication": {
         "type": "ServicePrincipal",
