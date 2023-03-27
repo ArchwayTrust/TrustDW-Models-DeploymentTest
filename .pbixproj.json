@@ -21,7 +21,7 @@
       },
       "environments": {
         "UAT": {
-          "workspace": "Deployment Test"
+          "workspace": "Deployment%20Test"
         }
       }
     }
