@@ -1,5 +1,0 @@
-{
-  "name": "# Students",
-  "description": "Currently only a simple average. Needs hardening.",
-  "formatString": "#,##0"
-}

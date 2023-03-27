@@ -1,6 +1,0 @@
-{
-  "name": "AccountLocationId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "AccountLocationId"
-}

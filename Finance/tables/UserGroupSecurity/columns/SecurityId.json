@@ -1,9 +1,0 @@
-{
-  "name": "SecurityId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "SecurityId",
-  "isAvailableInMdx": false,
-  "encodingHint": "value",
-  "summarizeBy": "none"
-}

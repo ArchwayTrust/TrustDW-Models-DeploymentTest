@@ -1,6 +1,0 @@
-{
-  "name": "End of Month",
-  "dataType": "dateTime",
-  "isHidden": true,
-  "sourceColumn": "End of Month"
-}

@@ -1,3 +1,0 @@
-VAR _MaxEndOfPeriod = FORMAT( MAX( 'Calendar'[Period End Date] ), "DD MMMM yyyy" )
-
-RETURN "Correct as at " & _MaxEndOfPeriod

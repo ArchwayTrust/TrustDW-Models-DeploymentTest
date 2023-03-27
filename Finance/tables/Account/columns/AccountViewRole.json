@@ -1,8 +1,0 @@
-{
-  "name": "AccountViewRole",
-  "dataType": "string",
-  "isHidden": true,
-  "sourceColumn": "AccountViewRole",
-  "isAvailableInMdx": false,
-  "summarizeBy": "none"
-}

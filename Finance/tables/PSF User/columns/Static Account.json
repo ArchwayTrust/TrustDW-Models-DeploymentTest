@@ -1,6 +1,0 @@
-{
-  "name": "Static Account",
-  "dataType": "boolean",
-  "sourceColumn": "Static Account",
-  "summarizeBy": "none"
-}

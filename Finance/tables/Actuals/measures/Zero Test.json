@@ -1,8 +1,0 @@
-{
-  "name": "Zero Test",
-  "description": [
-    "Removes all filters except for date related ones.",
-    "Checks for sum to zero."
-  ],
-  "formatString": "#,##0.00"
-}

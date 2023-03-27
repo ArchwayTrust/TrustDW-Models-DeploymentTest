@@ -1,4 +1,0 @@
-CALCULATE( 
-    [Actual], 
-    DATESYTD( Calendar[Date], "31-Aug" )
-)

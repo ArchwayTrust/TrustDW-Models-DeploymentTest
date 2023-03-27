@@ -1,6 +1,0 @@
-{
-  "name": "GRNDocNo",
-  "dataType": "string",
-  "isHidden": true,
-  "sourceColumn": "GRNDocNo"
-}

@@ -1,6 +1,0 @@
-{
-  "name": "XLedger Name",
-  "dataType": "string",
-  "sourceColumn": "XLedger Name",
-  "summarizeBy": "none"
-}

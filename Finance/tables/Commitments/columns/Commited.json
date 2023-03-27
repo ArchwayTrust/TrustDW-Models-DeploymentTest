@@ -1,8 +1,0 @@
-{
-  "name": "Commited",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "Commited",
-  "isAvailableInMdx": false,
-  "encodingHint": "value"
-}
