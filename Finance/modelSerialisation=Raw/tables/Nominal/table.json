@@ -1,0 +1,13 @@
+{
+  "name": "Nominal",
+  "partitions": [
+    {
+      "name": "Nominal",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

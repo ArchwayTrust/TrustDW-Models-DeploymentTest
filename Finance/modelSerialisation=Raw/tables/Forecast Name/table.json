@@ -1,0 +1,11 @@
+{
+  "name": "Forecast Name",
+  "partitions": [
+    {
+      "name": "Forecast Name",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

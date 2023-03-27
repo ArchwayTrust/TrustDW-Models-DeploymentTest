@@ -1,0 +1,16 @@
+VAR _Commitment =  
+    CALCULATE(
+        [Commitment],
+        REMOVEFILTERS ( Calendar ),
+        VALUES ( Calendar[Academic Year] )
+    )
+
+VAR _Variance = [YE Budget] - ( [YTD Actual] + _Commitment )
+VAR _Result = 
+    IF(
+        ISBLANK( [YE Budget] ),
+        BLANK(),
+        _Variance
+        
+    )
+RETURN _Result

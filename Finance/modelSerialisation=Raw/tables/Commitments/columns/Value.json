@@ -1,0 +1,8 @@
+{
+  "name": "Value",
+  "dataType": "decimal",
+  "isHidden": true,
+  "sourceColumn": "Value",
+  "isAvailableInMdx": false,
+  "encodingHint": "value"
+}

@@ -1,0 +1,13 @@
+{
+  "name": "Location (Nominal)",
+  "partitions": [
+    {
+      "name": "Location (Nominal)",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

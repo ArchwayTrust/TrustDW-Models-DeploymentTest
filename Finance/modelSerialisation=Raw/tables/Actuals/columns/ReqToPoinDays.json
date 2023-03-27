@@ -1,0 +1,6 @@
+{
+  "name": "ReqToPoinDays",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "ReqToPoinDays"
+}

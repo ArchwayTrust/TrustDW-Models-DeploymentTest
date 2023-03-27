@@ -1,0 +1,3250 @@
+{
+  "name": "Finance",
+  "id": "139ae211-cd26-463a-8df7-9eb0f09c5d75",
+  "compatibilityLevel": 1601,
+  "model": {
+    "name": "Finance",
+    "description": "Analytics model using data from PSF.",
+    "culture": "en-GB",
+    "dataAccessOptions": {
+      "legacyRedirects": false,
+      "returnErrorValuesAsNull": false
+    },
+    "defaultPowerBIDataSourceVersion": "powerBI_V3",
+    "discourageImplicitMeasures": true,
+    "sourceQueryCulture": "en-GB",
+    "relationships": [
+      {
+        "name": "3a39f735-1039-4b91-92d5-8449761c10ab",
+        "fromTable": "Budgets",
+        "fromColumn": "AccountId",
+        "toTable": "Account",
+        "toColumn": "AccountId"
+      },
+      {
+        "name": "4377041a-d951-4e41-b5b3-cd9ef0342d92",
+        "fromTable": "Actuals",
+        "fromColumn": "AccountId",
+        "toTable": "Account",
+        "toColumn": "AccountId"
+      },
+      {
+        "name": "50469c37-59f3-4937-923f-6df39b25ad6c",
+        "fromTable": "Budgets",
+        "fromColumn": "NominalId",
+        "toTable": "Nominal",
+        "toColumn": "NominalId"
+      },
+      {
+        "name": "5172aed4-2546-4e5e-b9ae-45164435282b",
+        "fromTable": "Actuals",
+        "fromColumn": "NominalId",
+        "toTable": "Nominal",
+        "toColumn": "NominalId"
+      },
+      {
+        "name": "17f32684-3550-41ff-96be-7ec260fe6172",
+        "fromTable": "Budgets",
+        "fromColumn": "AuditId",
+        "toTable": "Audit",
+        "toColumn": "AuditId"
+      },
+      {
+        "name": "be6c1b81-c554-4cfe-9377-5106a2ef1e34",
+        "fromTable": "Budgets",
+        "fromColumn": "BudgetNameId",
+        "toTable": "Budget Name",
+        "toColumn": "BudgetNameId"
+      },
+      {
+        "name": "878bcc13-ea07-4cc8-be6c-b28044bd29ff",
+        "fromTable": "Actuals",
+        "fromColumn": "AuditId",
+        "toTable": "Audit",
+        "toColumn": "AuditId"
+      },
+      {
+        "name": "4a351503-f6fb-4017-bd5c-22d7b9d8b7cb",
+        "fromTable": "PSF User",
+        "fromColumn": "Latest PSF Use",
+        "toTable": "Calendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "48c29ade-8303-4cfe-bfae-136044298cd9",
+        "fromTable": "Actuals",
+        "fromColumn": "DocumentId",
+        "toTable": "Document",
+        "toColumn": "DocumentId"
+      },
+      {
+        "name": "a66f495b-134a-4b2c-9165-f59566813e5e",
+        "fromTable": "Actuals",
+        "fromColumn": "ActualDescriptionId",
+        "toTable": "Actual Description",
+        "toColumn": "ActualDescriptionId"
+      },
+      {
+        "name": "b4830e2c-77d2-4151-9fc4-b76fd4c5b68f",
+        "fromTable": "Forecasts",
+        "fromColumn": "AuditId",
+        "toTable": "Audit",
+        "toColumn": "AuditId"
+      },
+      {
+        "name": "e133ad95-9ed1-4b3d-baf7-8f29262119de",
+        "fromTable": "Forecasts",
+        "fromColumn": "AccountId",
+        "toTable": "Account",
+        "toColumn": "AccountId"
+      },
+      {
+        "name": "b0559e5c-ae92-46a7-a4b8-d913e180d359",
+        "fromTable": "Forecasts",
+        "fromColumn": "NominalId",
+        "toTable": "Nominal",
+        "toColumn": "NominalId"
+      },
+      {
+        "name": "aecbbda1-c0ec-41ea-a9f4-ff1834fb0a06",
+        "fromTable": "Forecasts",
+        "fromColumn": "ForcastNameId",
+        "toTable": "Forecast Name",
+        "toColumn": "ForecastNameId"
+      },
+      {
+        "name": "ac0b1ace-3930-4d67-ab5a-f86fdbf37f0f",
+        "fromTable": "Forecasts",
+        "fromColumn": "Period End Date",
+        "toTable": "Calendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "1aba1d0a-c31d-4350-9c6b-ee3f650998b4",
+        "fromTable": "Actuals",
+        "fromColumn": "PeriodEndDate",
+        "toTable": "Calendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "95d6b2ef-8f4d-4cb3-a2a9-1e1e7fd455ec",
+        "fromTable": "Budgets",
+        "fromColumn": "Period End Date",
+        "toTable": "Calendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "4046155f-bfb2-435e-8892-b85a9fb8fc41",
+        "fromTable": "Actuals",
+        "fromColumn": "XAccountId",
+        "toTable": "XAccount",
+        "toColumn": "XAccountId"
+      },
+      {
+        "name": "873ef171-affb-4658-a0a8-85b892e9a59e",
+        "toCardinality": "many",
+        "fromTable": "Actuals",
+        "fromColumn": "SecurityId",
+        "toTable": "UserGroupSecurity",
+        "toColumn": "SecurityId"
+      },
+      {
+        "name": "4a83e017-f2d8-4bad-90ff-d5b7653485ad",
+        "toCardinality": "many",
+        "fromTable": "UserGroupSecurity",
+        "fromColumn": "UserGroupId",
+        "toTable": "User",
+        "toColumn": "UserGroupId",
+        "securityFilteringBehavior": "none"
+      },
+      {
+        "name": "44ff0929-5880-411f-b889-b8a112e16243",
+        "toCardinality": "many",
+        "fromTable": "Budgets",
+        "fromColumn": "SecurityId",
+        "toTable": "UserGroupSecurity",
+        "toColumn": "SecurityId"
+      },
+      {
+        "name": "673ede1b-cfba-4b2f-a970-2949901da271",
+        "toCardinality": "many",
+        "fromTable": "Forecasts",
+        "fromColumn": "SecurityId",
+        "toTable": "UserGroupSecurity",
+        "toColumn": "SecurityId"
+      },
+      {
+        "name": "c1da00d8-8c98-47a8-b890-509302e40b61",
+        "fromTable": "Commitments",
+        "fromColumn": "AccountId",
+        "toTable": "Account",
+        "toColumn": "AccountId"
+      },
+      {
+        "name": "df1c227d-2d5b-4c0a-964d-947ebfc2dd89",
+        "fromTable": "Commitments",
+        "fromColumn": "CommitmentDocumentId",
+        "toTable": "Purchase Order Doc",
+        "toColumn": "CommitmentDocumentId"
+      },
+      {
+        "name": "3f8ea753-1002-4d1e-9a54-c7234f751152",
+        "fromTable": "Commitments",
+        "fromColumn": "NominalId",
+        "toTable": "Nominal",
+        "toColumn": "NominalId"
+      },
+      {
+        "name": "ebf3b51b-af85-4cdd-a2da-2515de99943a",
+        "fromTable": "Commitments",
+        "fromColumn": "PeriodEndDate",
+        "toTable": "Calendar",
+        "toColumn": "Date"
+      },
+      {
+        "name": "4d8ba200-99e9-4b5a-8623-6f0ad2f6cc28",
+        "toCardinality": "many",
+        "fromTable": "Commitments",
+        "fromColumn": "SecurityId",
+        "toTable": "UserGroupSecurity",
+        "toColumn": "SecurityId"
+      },
+      {
+        "name": "bb972c9b-bb11-41d8-8366-3b1934a8b0dc",
+        "fromTable": "Actuals",
+        "fromColumn": "AgedDocumentId",
+        "toTable": "Document Ages",
+        "toColumn": "AgedDocumentId"
+      },
+      {
+        "name": "af40b400-7dce-4e87-9073-60ec9fce509a",
+        "fromTable": "Actuals",
+        "fromColumn": "AccountLocationId",
+        "toTable": "Location (Account)",
+        "toColumn": "AccountLocationId"
+      },
+      {
+        "name": "0660dd54-0e51-48fd-966f-6ed02bceb13e",
+        "fromTable": "Budgets",
+        "fromColumn": "AccountLocationId",
+        "toTable": "Location (Account)",
+        "toColumn": "AccountLocationId"
+      },
+      {
+        "name": "4de77476-a333-491b-9ef4-9db6e6245f73",
+        "fromTable": "Forecasts",
+        "fromColumn": "AccountLocationId",
+        "toTable": "Location (Account)",
+        "toColumn": "AccountLocationId"
+      },
+      {
+        "name": "14db36f9-e0eb-48e1-8e86-51852a3565c8",
+        "fromTable": "Commitments",
+        "fromColumn": "AccountLocationId",
+        "toTable": "Location (Account)",
+        "toColumn": "AccountLocationId"
+      },
+      {
+        "name": "8462f4ac-07c9-41e7-bb5d-fb3615645c4f",
+        "fromTable": "Actuals",
+        "fromColumn": "NominalLocationId",
+        "toTable": "Location (Nominal)",
+        "toColumn": "NominalLocationId"
+      },
+      {
+        "name": "6d1f6510-c9bf-4690-88dd-63b50c0daea3",
+        "fromTable": "Budgets",
+        "fromColumn": "NominalLocationId",
+        "toTable": "Location (Nominal)",
+        "toColumn": "NominalLocationId"
+      },
+      {
+        "name": "6f4e360b-8c3d-407c-8e22-4453db12a8d6",
+        "fromTable": "Forecasts",
+        "fromColumn": "NominalLocationId",
+        "toTable": "Location (Nominal)",
+        "toColumn": "NominalLocationId"
+      },
+      {
+        "name": "f720d1ca-8dbe-4226-92d0-656244eb7091",
+        "fromTable": "Commitments",
+        "fromColumn": "NominalLocationId",
+        "toTable": "Location (Nominal)",
+        "toColumn": "NominalLocationId"
+      },
+      {
+        "name": "bc9c8528-c982-484d-aaed-20b02ca7e7ea",
+        "toCardinality": "many",
+        "fromTable": "Students",
+        "fromColumn": "End of Month",
+        "toTable": "Calendar",
+        "toColumn": "End of Month"
+      },
+      {
+        "name": "2ab36c91-02ba-485e-8349-0224f221e65f",
+        "fromTable": "Students",
+        "fromColumn": "LocationId",
+        "toTable": "Location (Account)",
+        "toColumn": "AccountLocationId"
+      },
+      {
+        "name": "f32dff94-8263-426a-ba3e-62ddd918ef8c",
+        "fromTable": "Students",
+        "fromColumn": "LocationId",
+        "toTable": "Location (Nominal)",
+        "toColumn": "NominalLocationId"
+      }
+    ],
+    "roles": [
+      {
+        "name": "Everything",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "obj:2489bb71-8bda-476b-b035-a5a74e5adcb5@23990c89-ae67-4afc-87ce-470c97afeb37",
+            "memberId": "2489bb71-8bda-476b-b035-a5a74e5adcb5",
+            "identityProvider": "AzureAD",
+            "memberType": "group"
+          }
+        ]
+      },
+      {
+        "name": "DynamicPSF",
+        "modelPermission": "read",
+        "members": [
+          {
+            "memberName": "JBU@emmanuel.nottingham.sch.uk",
+            "memberId": "00ee3d9e-4c58-4e1f-8ddd-2cce1832a63a",
+            "identityProvider": "AzureAD",
+            "memberType": "user"
+          }
+        ],
+        "tablePermissions": [
+          {
+            "name": "User",
+            "filterExpression": "User[Email] = USERPRINCIPALNAME()"
+          }
+        ]
+      }
+    ],
+    "extendedProperties": [
+      {
+        "type": "json",
+        "name": "TabularEditor_DeploymentMetadata",
+        "value": {
+          "User": "BCA\\bdobbs",
+          "Time": "2023-02-20T14:46:35.536326+00:00",
+          "ClientMachine": "ALT-LAP-S44831",
+          "DeploymentMode": "SaveUI",
+          "TabularEditorBuild": "3.4.8440.26878"
+        }
+      }
+    ],
+    "queryGroups": [
+      {
+        "folder": "Conformed",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "folder": "Finance",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ]
+      },
+      {
+        "folder": "Finance\\Dimensions",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "0"
+          }
+        ]
+      },
+      {
+        "folder": "Finance\\Facts",
+        "annotations": [
+          {
+            "name": "PBI_QueryGroupOrder",
+            "value": "1"
+          }
+        ]
+      }
+    ],
+    "annotations": [
+      {
+        "name": "BestPracticeAnalyzer_IgnoreRules",
+        "value": "{\"RuleIDs\":[]}"
+      },
+      {
+        "name": "BestPracticeAnalyzer_ExternalRuleFiles",
+        "value": "[\"C:\\\\Users\\\\bdobbs\\\\Downloads\\\\BPARules-standard.json\"]"
+      },
+      {
+        "name": "TabularEditor_SerializeOptions",
+        "value": "{\"IgnoreInferredObjects\":true,\"IgnoreInferredProperties\":true,\"IgnoreTimestamps\":true,\"SplitMultilineStrings\":true,\"PrefixFilenames\":false,\"LocalTranslations\":true,\"LocalPerspectives\":true,\"LocalRelationships\":true,\"Levels\":[\"Data Sources\",\"Shared Expressions\",\"Perspectives\",\"Relationships\",\"Roles\",\"Tables\",\"Tables/Columns\",\"Tables/Hierarchies\",\"Tables/Measures\",\"Tables/Partitions\",\"Tables/Calculation Items\",\"Translations\"]}"
+      }
+    ],
+    "tables": [
+      {
+        "name": "Account",
+        "partitions": [
+          {
+            "name": "Account",
+            "mode": "import",
+            "queryGroup": "Finance\\Dimensions",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"fin\", Item = \"Dim_Accounts\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Account Code",
+            "dataType": "string",
+            "sourceColumn": "Account Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Account Name",
+            "dataType": "string",
+            "sourceColumn": "Account Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "AccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "AccountId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "AccountViewRole",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "AccountViewRole",
+            "isAvailableInMdx": false,
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Directorate",
+            "dataType": "string",
+            "sourceColumn": "Directorate"
+          },
+          {
+            "name": "Ledger Code",
+            "dataType": "string",
+            "sourceColumn": "Ledger Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ledger Name",
+            "dataType": "string",
+            "sourceColumn": "Ledger Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Ledger Type",
+            "dataType": "string",
+            "sourceColumn": "Ledger Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "LedgerViewRole",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "LedgerViewRole",
+            "isAvailableInMdx": false,
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Actual Description",
+        "description": "Line descriptions for each actual.",
+        "partitions": [
+          {
+            "name": "Actual Description",
+            "mode": "import",
+            "queryGroup": "Finance\\Dimensions",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"fin\", Item = \"Dim_ActualDescriptions\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Actual Description",
+            "dataType": "string",
+            "sourceColumn": "Actual Description",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActualDescriptionId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "ActualDescriptionId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Actuals",
+        "description": "Actuals data from PSF.",
+        "partitions": [
+          {
+            "name": "Actuals",
+            "mode": "import",
+            "queryGroup": "Finance\\Facts",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Fact_Actuals\"]}[Data],",
+                "    RemoveCol = Table.RemoveColumns(Nav, {\"ActualId\", \"FinancialPeriodId\"})",
+                "in",
+                "  RemoveCol"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "% of GRN Over 10 Days After POIN",
+            "formatString": "#,##0.0 %",
+            "displayFolder": "Team Metrics",
+            "expression": [
+              "VAR _tblDocs = ",
+              "CALCULATETABLE(",
+              "    SUMMARIZE(",
+              "        Actuals,",
+              "        Actuals[DocumentId],",
+              "        Actuals[GRNDocDate],",
+              "        Actuals[DocumentDate]",
+              "    ),",
+              "    NOT ( ISBLANK( Actuals[GRNDocDate] ) )",
+              ")",
+              "",
+              "VAR _NumDocs = COUNTROWS ( _tblDocs )",
+              "VAR _NumLate = ",
+              "    COUNTROWS(",
+              "        FILTER(",
+              "            _tblDocs,",
+              "            Actuals[GRNDocDate] - Actuals[DocumentDate] > 10",
+              "        )",
+              "    )",
+              "    ",
+              "VAR _Result = DIVIDE (_NumLate, _NumDocs)",
+              "",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "% of POINS with Later REQs",
+            "formatString": "#,##0.0 %",
+            "displayFolder": "Team Metrics",
+            "expression": [
+              "VAR _tblDocs = ",
+              "CALCULATETABLE(",
+              "    SUMMARIZE(",
+              "        Actuals,",
+              "        Actuals[DocumentId],",
+              "        Actuals[ReqDocDate],",
+              "        Actuals[DocumentDate]",
+              "    ),",
+              "    NOT ( ISBLANK( Actuals[ReqDocDate] ) )",
+              ")",
+              "",
+              "VAR _NumDocs = COUNTROWS ( _tblDocs )",
+              "VAR _NumLate = ",
+              "    COUNTROWS(",
+              "        FILTER(",
+              "            _tblDocs,",
+              "            Actuals[ReqDocDate] > Actuals[DocumentDate]",
+              "        )",
+              "    )",
+              "    ",
+              "VAR _Result = DIVIDE (_NumLate, _NumDocs)",
+              "",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "% Spend of YE Budget",
+            "formatString": "#,##0.0 %",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _Result = ",
+              "    DIVIDE(",
+              "        [YTD Actual],",
+              "        [YE Budget]",
+              "    )",
+              "    ",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "Actual",
+            "description": "Sum of actual values from PSF.",
+            "formatString": "#,##0.00",
+            "expression": [
+              "SUM( Actuals[Value] )",
+              ""
+            ]
+          },
+          {
+            "name": "Actuals and Budgets Exist",
+            "formatString": "#,##0",
+            "displayFolder": "Slicer Filters",
+            "expression": "INT( NOT ( ISEMPTY( Actuals ) && ISEMPTY( Budgets ) ) )"
+          },
+          {
+            "name": "Actuals Exist",
+            "formatString": "#,##0",
+            "displayFolder": "Slicer Filters",
+            "annotations": [
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"DisplayFolder\"]"
+              }
+            ],
+            "expression": "INT( NOT ( ISEMPTY( Actuals ) ) )"
+          },
+          {
+            "name": "Extraction Time",
+            "formatString": "dd-mm-yyyy hh:nn",
+            "expression": [
+              "CALCULATE(",
+              "    MAX( Audit[Extraction Date Time] ),",
+              "    TREATAS( DISTINCT( Actuals[AuditId] ), Audit[AuditId] )",
+              ")",
+              ""
+            ]
+          },
+          {
+            "name": "Left to Spend",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _Commitment =  ",
+              "    CALCULATE(",
+              "        [Commitment],",
+              "        REMOVEFILTERS ( Calendar ),",
+              "        VALUES ( Calendar[Academic Year] )",
+              "    )",
+              "",
+              "VAR _Variance = [YE Budget] - ( [YTD Actual] + _Commitment )",
+              "VAR _Result = ",
+              "    IF(",
+              "        ISBLANK( [YE Budget] ),",
+              "        BLANK(),",
+              "        _Variance",
+              "        ",
+              "    )",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "Variance",
+            "description": "Actual Variance from Budget",
+            "formatString": "#,##0.00",
+            "expression": [
+              "[Budget] - [Actual]",
+              "",
+              "//Expenture Variances (Budget – Actual) ",
+              "//Postitive variance as positive ",
+              "//Negative variance as negatives ",
+              "//",
+              "//Income Variances (Budget – Actual) ",
+              "//Negative variance as positive ",
+              "//Positive variance as negative "
+            ]
+          },
+          {
+            "name": "YTD % Variance",
+            "formatString": "#,##0.0 %",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _VarianceFromBudget = [YTD Variance]",
+              "VAR _YTDBudget = [YTD Budget]",
+              "//VAR _Mult = SELECTEDVALUE( Nominal[Display Multiplier], -1 )",
+              "VAR _Result = DIVIDE( _VarianceFromBudget, _YTDBudget )",
+              "",
+              "RETURN",
+              "    _Result"
+            ]
+          },
+          {
+            "name": "YTD Actual Per Student",
+            "formatString": "#,##0.00",
+            "displayFolder": "CLFP",
+            "expression": [
+              "DIVIDE (",
+              "    [YTD Actual],",
+              "    [# Students]",
+              ")"
+            ]
+          },
+          {
+            "name": "YTD Actual",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "CALCULATE( ",
+              "    [Actual], ",
+              "    DATESYTD( Calendar[Date], \"31-Aug\" )",
+              ")",
+              ""
+            ]
+          },
+          {
+            "name": "YTD Variance",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "[YTD Budget] - [YTD Actual]",
+              ""
+            ]
+          },
+          {
+            "name": "Zero Test",
+            "description": [
+              "Removes all filters except for date related ones.",
+              "Checks for sum to zero."
+            ],
+            "formatString": "#,##0.00",
+            "expression": [
+              "CALCULATE (",
+              "    [Actual],",
+              "    REMOVEFILTERS(),",
+              "    VALUES ( Calendar[Date])",
+              ")"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "name": "AccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "AccountLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountLocationId"
+          },
+          {
+            "name": "ActualDescriptionId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ActualDescriptionId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ActualStatusId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ActualStatusId"
+          },
+          {
+            "name": "AgedDocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AgedDocumentId"
+          },
+          {
+            "name": "AuditId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AuditId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "Discount",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Discount",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"General\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "DocumentDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "DocumentDate"
+          },
+          {
+            "name": "DocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "DocumentId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "GRNDocDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "GRNDocDate"
+          },
+          {
+            "name": "GRNDocNo",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "GRNDocNo"
+          },
+          {
+            "name": "GRNtoPoinDays",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "GRNtoPoinDays"
+          },
+          {
+            "name": "NominalId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "NominalLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalLocationId"
+          },
+          {
+            "name": "PeriodEndDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "PeriodEndDate",
+            "formatString": "dd/mm/yyyy",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeGeneralPattern\"><DateTimes><DateTime LCID=\"2057\" Group=\"LongDate\" FormatString=\"D\" /></DateTimes></Format>"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "RefNo",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "RefNo"
+          },
+          {
+            "name": "ReqDocDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "ReqDocDate"
+          },
+          {
+            "name": "ReqDocNo",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReqDocNo"
+          },
+          {
+            "name": "ReqToPoinDays",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ReqToPoinDays"
+          },
+          {
+            "name": "SecurityId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SecurityId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Value",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Value",
+            "formatString": "#,##0.00",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"General\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "XAccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "XAccountId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Audit",
+        "description": "Update times and dates.",
+        "isHidden": true,
+        "partitions": [
+          {
+            "name": "Audit",
+            "mode": "import",
+            "queryGroup": "Conformed",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"com\", Item = \"Dim_Audit\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "AuditId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "AuditId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "Data Source",
+            "dataType": "string",
+            "isHidden": true,
+            "sourceColumn": "Data Source",
+            "isAvailableInMdx": false,
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "Extraction Date Time",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Extraction Date Time",
+            "formatString": "dd-mm-yyyy h:nn",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeGeneralPattern\"><DateTimes><DateTime LCID=\"2057\" Group=\"GeneralDateTimeLong\" FormatString=\"G\" /></DateTimes></Format>"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Budget Name",
+        "partitions": [
+          {
+            "name": "Budget Name",
+            "mode": "import",
+            "queryGroup": "Finance\\Dimensions",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"core-sys-dw01\"),",
+                "    DB = Source{[Name=\"ALT-DW\"]}[Data],",
+                "    SQL = Value.NativeQuery(",
+                "            DB,",
+                "            \"SELECT",
+                "\t            n.BudgetNameId,",
+                "\t            n.[Budget Code],",
+                "                n.[Budget Title]",
+                "            FROM fin.Dim_BudgetNames AS n",
+                "            WHERE NOT (n.[Budget Code] LIKE '%FC%'",
+                "                OR n.[Budget Code] LIKE '%FOR%')\",",
+                "            null,",
+                "            [EnableFolding = true]",
+                "  )",
+                "in",
+                "    SQL"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Budget Code",
+            "dataType": "string",
+            "sourceColumn": "Budget Code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Budget Title",
+            "dataType": "string",
+            "sourceColumn": "Budget Title",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "BudgetNameId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "BudgetNameId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Budgets",
+        "description": [
+          "Budget data from PSF. ",
+          "Only pulls through budget infromation for codes which don't contain FC or FOR."
+        ],
+        "partitions": [
+          {
+            "name": "Budgets",
+            "mode": "import",
+            "queryGroup": "Finance\\Facts",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"core-sys-dw01\"),",
+                "    DB = Source{[Name=\"ALT-DW\"]}[Data],",
+                "    SQL = Value.NativeQuery(",
+                "            DB,",
+                "            \"SELECT",
+                "                b.NominalLocationId,",
+                "                b.AccountLocationId,",
+                "                b.NominalId,",
+                "                b.AccountId,",
+                "                b.BudgetNameId,",
+                "                b.[Period End Date],",
+                "                b.SecurityId,",
+                "                b.AuditId,",
+                "                b.[Value]",
+                "            FROM fin.Fact_Budgets AS b",
+                "            INNER JOIN fin.Dim_BudgetNames AS n ON b.BudgetNameId = n.BudgetNameId ",
+                "            WHERE NOT (n.[Budget Code] LIKE '%FC%'",
+                "                OR n.[Budget Code] LIKE '%FOR%')\" ,",
+                "            null,",
+                "            [EnableFolding = true]",
+                "  )",
+                "in",
+                "    SQL"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Budget",
+            "description": [
+              "Sum of budget values from PSF. ",
+              "(Not division of year end)"
+            ],
+            "formatString": "#,##0.00",
+            "expression": [
+              "VAR _Budget = SUM( Budgets[Value] )",
+              "",
+              "VAR _BudgetDisplay =",
+              "    IF(",
+              "        ISFILTERED( 'Actual Description' ) || ISFILTERED ( XAccount ),",
+              "        BLANK( ),",
+              "        _Budget",
+              "    )",
+              "",
+              "RETURN _BudgetDisplay"
+            ]
+          },
+          {
+            "name": "Budgets Exist",
+            "formatString": "#,##0",
+            "displayFolder": "Slicer Filters",
+            "expression": "INT( NOT ( ISEMPTY( 'Budgets' ) ) )"
+          },
+          {
+            "name": "YE Budget",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _SelectedAcYear = VALUES( Calendar[Academic Year] )",
+              "VAR _YEBudget =",
+              "    CALCULATE(",
+              "        SUM( Budgets[Value] ),",
+              "        REMOVEFILTERS( Calendar ),",
+              "        _SelectedAcYear",
+              "    )",
+              "VAR _Result =",
+              "    IF(",
+              "        ISFILTERED( 'Actual Description' ),",
+              "        BLANK( ),",
+              "        _YEBudget",
+              "    )",
+              "RETURN",
+              "    _Result"
+            ]
+          },
+          {
+            "name": "YTD Budget",
+            "description": "YE Budget with a simple 1/12th scaling per month applied.",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _LatestVisibleMonthEnd = MAX( Calendar[End of Month] )",
+              "VAR _LatestVisibleFY = MAX ( Calendar[Financial Year] )",
+              "VAR _VisibleMonths = ",
+              "    CALCULATE(",
+              "        DISTINCTCOUNT( Calendar[End of Month] ),",
+              "        REMOVEFILTERS ( Calendar ),",
+              "        Calendar[Financial Year] = _LatestVisibleFY,",
+              "        Calendar[End of Month] <= _LatestVisibleMonthEnd",
+              "    )",
+              "",
+              "",
+              "VAR _YTDBudget = ",
+              "    DIVIDE( [YE Budget] * _VisibleMonths, 12 )",
+              "    ",
+              "RETURN",
+              "    _YTDBudget"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "name": "AccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "AccountLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountLocationId"
+          },
+          {
+            "name": "AuditId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AuditId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "BudgetNameId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "BudgetNameId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "NominalId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "NominalLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalLocationId"
+          },
+          {
+            "name": "Period End Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Period End Date",
+            "formatString": "Long Date",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeGeneralPattern\"><DateTimes><DateTime LCID=\"2057\" Group=\"LongDate\" FormatString=\"D\" /></DateTimes></Format>"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "SecurityId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SecurityId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "Value",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Value",
+            "formatString": "#,##0.00",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Calendar",
+        "description": "Financial Calendar",
+        "dataCategory": "Time",
+        "partitions": [
+          {
+            "name": "Calendar",
+            "mode": "import",
+            "queryGroup": "Conformed",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"core-sys-dw01\"),",
+                "    DB = Source{[Name=\"ALT-DW\"]}[Data],",
+                "    SQL = Value.NativeQuery(",
+                "            DB,",
+                "            \"SELECT * FROM fin.vDim_FinancialCalendar\",",
+                "            null,",
+                "            [EnableFolding = true]",
+                "  )",
+                "in",
+                "    SQL"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Period Label",
+            "expression": [
+              "VAR _MaxEndOfPeriod = FORMAT( MAX( 'Calendar'[Period End Date] ), \"DD MMMM yyyy\" )",
+              "",
+              "RETURN \"Correct as at \" & _MaxEndOfPeriod"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "name": "Academic Year",
+            "dataType": "string",
+            "sourceColumn": "Academic Year",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Access Level",
+            "dataType": "int64",
+            "sourceColumn": "Access Level"
+          },
+          {
+            "name": "Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "Date",
+            "formatString": "dd/mm/yyyy",
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "UnderlyingDateTimeDataType",
+                "value": "Date"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"DateTimeGeneralPattern\"><DateTimes><DateTime LCID=\"2057\" Group=\"LongDate\" FormatString=\"D\" /></DateTimes></Format>"
+              }
+            ]
+          },
+          {
+            "name": "End of Month",
+            "dataType": "dateTime",
+            "sourceColumn": "End of Month"
+          },
+          {
+            "name": "Financial Period & Year",
+            "dataType": "string",
+            "sourceColumn": "Financial Period & Year",
+            "isAvailableInMdx": false,
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Financial Period",
+            "dataType": "int64",
+            "sourceColumn": "Financial Period",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "User"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              }
+            ]
+          },
+          {
+            "name": "Financial Year",
+            "dataType": "string",
+            "sourceColumn": "Financial Year"
+          },
+          {
+            "name": "Period End Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Period End Date"
+          },
+          {
+            "name": "Period State",
+            "dataType": "string",
+            "sourceColumn": "Period State"
+          },
+          {
+            "name": "PeriodOrder",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "PeriodOrder"
+          }
+        ]
+      },
+      {
+        "name": "Commitments",
+        "partitions": [
+          {
+            "name": "Commitments",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Fact_Commitments\"]}[Data],",
+                "    RemoveCol = Table.RemoveColumns(Nav, {\"FinancialPeriodId\"})",
+                "in",
+                "  RemoveCol"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Commitment",
+            "description": "Includes GRN and POAUT.",
+            "formatString": "#,##0.00; +#,##0.00",
+            "expression": [
+              "SUMX(",
+              "    Commitments,",
+              "    Commitments[Value] * Commitments[Commited]",
+              ")"
+            ]
+          },
+          {
+            "name": "YTD Commitment",
+            "formatString": "#,##0.00; +#,##0.00",
+            "expression": "CALCULATE( [Commitment], DATESYTD( Calendar[Date], \"31-Aug\" ) )"
+          }
+        ],
+        "columns": [
+          {
+            "name": "AccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "AccountLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountLocationId"
+          },
+          {
+            "name": "AuditId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AuditId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "Commited",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Commited",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "CommitmentDocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CommitmentDocumentId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "NominalId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "NominalLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalLocationId"
+          },
+          {
+            "name": "PeriodEndDate",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "PeriodEndDate",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "RefNo",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "RefNo"
+          },
+          {
+            "name": "SecurityId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SecurityId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "Value",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Value",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "XAccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "XAccountId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          }
+        ]
+      },
+      {
+        "name": "Display Formats (CG)",
+        "calculationGroup": {
+          "precedence": 10,
+          "calculationItems": [
+            {
+              "name": "Raw PSF",
+              "expression": "SELECTEDMEASURE()",
+              "ordinal": 0
+            },
+            {
+              "name": "Apply sign changes and show as 1000s",
+              "expression": [
+                "VAR _MeasureName = SELECTEDMEASURENAME()",
+                "VAR _MeasureValue = SELECTEDMEASURE()",
+                "",
+                "VAR _Ignore = ",
+                "        CALCULATE (",
+                "            ISEMPTY ( 'Measure Details' ),",
+                "            'Measure Details'[Measure Name] = _MeasureName,",
+                "            'Measure Details'[Allow Sign Change]",
+                "        )",
+                "",
+                "VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )",
+                "",
+                "VAR _Result = ",
+                "    IF(",
+                "        _Ignore,",
+                "        _MeasureValue,",
+                "        _MeasureValue * _DisplayMultiplier",
+                "    )",
+                "",
+                "RETURN _Result"
+              ],
+              "ordinal": 4,
+              "formatStringDefinition": {
+                "expression": [
+                  "VAR _MeasureName = SELECTEDMEASURENAME()",
+                  "VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()",
+                  "",
+                  "",
+                  "VAR _Ignore = ",
+                  "         CALCULATE (",
+                  "            ISEMPTY ( 'Measure Details' ),",
+                  "            'Measure Details'[Measure Name] = _MeasureName,",
+                  "            'Measure Details'[Allow Scale Change]",
+                  "        )",
+                  "   ",
+                  "VAR _CorrectMagnitude = ",
+                  "    IF(",
+                  "        _Ignore,",
+                  "        _MeasureFormat,",
+                  "        \"#,0,\"",
+                  "    )",
+                  "",
+                  "RETURN _CorrectMagnitude"
+                ]
+              }
+            },
+            {
+              "name": "Apply sign changes",
+              "expression": [
+                "VAR _MeasureName = SELECTEDMEASURENAME()",
+                "VAR _MeasureValue = SELECTEDMEASURE()",
+                "",
+                "VAR _Ignore = ",
+                "        CALCULATE (",
+                "            ISEMPTY ( 'Measure Details' ),",
+                "            'Measure Details'[Measure Name] = _MeasureName,",
+                "            'Measure Details'[Allow Sign Change]",
+                "        )                   ",
+                "",
+                "VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )",
+                "",
+                "VAR _Result = ",
+                "    IF(",
+                "        _Ignore,",
+                "        _MeasureValue,",
+                "        _MeasureValue * _DisplayMultiplier",
+                "    )",
+                "",
+                "RETURN _Result"
+              ],
+              "ordinal": 3
+            },
+            {
+              "name": "Invert PSF",
+              "expression": [
+                "VAR _MeasureName = SELECTEDMEASURENAME()",
+                "VAR _MeasureValue = SELECTEDMEASURE()",
+                "",
+                "VAR _Ignore = ",
+                "        CALCULATE (",
+                "            ISEMPTY ( 'Measure Details' ),",
+                "            'Measure Details'[Measure Name] = _MeasureName,",
+                "            'Measure Details'[Allow Sign Change]",
+                "        )",
+                "                    ",
+                "RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)"
+              ],
+              "ordinal": 1
+            },
+            {
+              "name": "Invert PSF and show as 1000s",
+              "expression": [
+                "VAR _MeasureName = SELECTEDMEASURENAME()",
+                "VAR _MeasureValue = SELECTEDMEASURE()",
+                "",
+                "VAR _Ignore = ",
+                "        CALCULATE (",
+                "            ISEMPTY ( 'Measure Details' ),",
+                "            'Measure Details'[Measure Name] = _MeasureName,",
+                "            'Measure Details'[Allow Sign Change]",
+                "        )",
+                "                    ",
+                "RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)"
+              ],
+              "ordinal": 2,
+              "formatStringDefinition": {
+                "expression": [
+                  "VAR _MeasureName = SELECTEDMEASURENAME()",
+                  "VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()",
+                  "",
+                  "",
+                  "VAR _Ignore = ",
+                  "         CALCULATE (",
+                  "            ISEMPTY ( 'Measure Details' ),",
+                  "            'Measure Details'[Measure Name] = _MeasureName,",
+                  "            'Measure Details'[Allow Scale Change]",
+                  "        )",
+                  "   ",
+                  "VAR _CorrectMagnitude = ",
+                  "    IF(",
+                  "        _Ignore,",
+                  "        _MeasureFormat,",
+                  "        \"#,0,\"",
+                  "    )",
+                  "",
+                  "RETURN _CorrectMagnitude"
+                ]
+              }
+            }
+          ]
+        },
+        "partitions": [
+          {
+            "name": "Partition",
+            "mode": "import",
+            "source": {
+              "type": "calculationGroup"
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Display Format",
+            "dataType": "string",
+            "description": "Add this into the filter pane for the visual or page.",
+            "sourceColumn": "Name",
+            "sortByColumn": "Ordinal"
+          },
+          {
+            "name": "Ordinal",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Ordinal"
+          }
+        ]
+      },
+      {
+        "name": "Document",
+        "description": "Details for each document.",
+        "partitions": [
+          {
+            "name": "Document",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"fin\", Item = \"Dim_Documents\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Created By",
+            "dataType": "string",
+            "sourceColumn": "Created By",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Document Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Document Date",
+            "formatString": "dd/mm/yyyy",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Document Number",
+            "dataType": "int64",
+            "sourceColumn": "Document Number",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Document Type Code",
+            "dataType": "string",
+            "sourceColumn": "Document Type Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Document Type",
+            "dataType": "string",
+            "sourceColumn": "Document Type",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "DocumentId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Input Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Input Date",
+            "formatString": "dd/mm/yyyy"
+          }
+        ]
+      },
+      {
+        "name": "Document Ages",
+        "description": "Document age groups for those with a status code of Open or Disputed.",
+        "partitions": [
+          {
+            "name": "Document Ages",
+            "mode": "import",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\",\"ALT-DW\"),",
+                "    Data = Source{[Schema=\"fin\",Item=\"Dim_AgedDocuments\"]}[Data]",
+                "in",
+                "    Data"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "AgedDocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AgedDocumentId"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description",
+            "sortByColumn": "AgedDocumentId"
+          },
+          {
+            "name": "MaximumDays",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MaximumDays"
+          },
+          {
+            "name": "MinimumDays",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "MinimumDays"
+          }
+        ]
+      },
+      {
+        "name": "Forecast Name",
+        "partitions": [
+          {
+            "name": "Forecast Name",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"core-sys-dw01\"),",
+                "    DB = Source{[Name=\"ALT-DW\"]}[Data],",
+                "    SQL = Value.NativeQuery(",
+                "            DB,",
+                "            \"SELECT",
+                "                n.BudgetNameId AS [ForecastNameId],",
+                "                n.[Budget Code] AS [Forecast Code],",
+                "                n.[Budget Title] AS [Forecast Title]",
+                "            FROM fin.Dim_BudgetNames AS n",
+                "            WHERE n.[Budget Code] LIKE '%FC%' ",
+                "                OR n.[Budget Code] LIKE '%FOR%'\",",
+                "            null,",
+                "            [EnableFolding = true]",
+                "  )",
+                "in",
+                "    SQL"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Forecast Code",
+            "dataType": "string",
+            "sourceColumn": "Forecast Code"
+          },
+          {
+            "name": "Forecast Title",
+            "dataType": "string",
+            "sourceColumn": "Forecast Title"
+          },
+          {
+            "name": "ForecastNameId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "ForecastNameId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Forecasts",
+        "description": [
+          "Forecast data from PSF. ",
+          "Only pulls through those that have codes containing FC or FOR.",
+          ""
+        ],
+        "partitions": [
+          {
+            "name": "Forecasts",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Databases(\"core-sys-dw01\"),",
+                "    DB = Source{[Name=\"ALT-DW\"]}[Data],",
+                "    SQL = Value.NativeQuery(",
+                "            DB,",
+                "            \"SELECT",
+                "                b.NominalLocationId,",
+                "                b.AccountLocationId,",
+                "                b.NominalId,",
+                "                b.AccountId,",
+                "                b.BudgetNameId AS [ForcastNameId],",
+                "                b.[Period End Date],",
+                "                b.SecurityId,",
+                "                b.AuditId,",
+                "                b.[Value]",
+                "            FROM fin.Fact_Budgets AS b",
+                "            INNER JOIN fin.Dim_BudgetNames AS n ON b.BudgetNameId = n.BudgetNameId ",
+                "            WHERE n.[Budget Code] LIKE '%FC%'",
+                "                OR n.[Budget Code] LIKE '%FOR%'\",",
+                "            null,",
+                "            [EnableFolding = true]",
+                "  )",
+                "in",
+                "    SQL"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Forecast",
+            "description": "Sum of forecast values from PSF.",
+            "formatString": "#,##0.00",
+            "expression": [
+              "//VAR _DisplayMult = SELECTEDVALUE ( Nominal[Display Multiplier], -1)",
+              "VAR _Forecast = SUM( Forecasts[Value] ) ",
+              "VAR _ForecastDisplay =",
+              "    IF(",
+              "        ISFILTERED( 'Actual Description' ) || ISFILTERED ( XAccount ),",
+              "        BLANK( ),",
+              "        _Forecast",
+              "    )",
+              "VAR _Result = _ForecastDisplay",
+              "RETURN",
+              "    _Result"
+            ]
+          },
+          {
+            "name": "YE Forecast Per Student",
+            "formatString": "#,##0.00",
+            "displayFolder": "CLFP",
+            "expression": [
+              "DIVIDE (",
+              "    [YE Forecast],",
+              "    [# Students]",
+              ")"
+            ]
+          },
+          {
+            "name": "YE Forecast",
+            "description": "Takes actual YTD and adds on forecast for future periods.",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _ActualYTD = [YTD Actual]",
+              "",
+              "VAR _ForecastYTD = [YTD Forecast]",
+              "",
+              "VAR _ForecastSimpleYE = ",
+              "    CALCULATE (",
+              "        [Forecast],",
+              "        REMOVEFILTERS ( 'Calendar' ),",
+              "        VALUES ( Calendar[Academic Year] )",
+              "    )",
+              "",
+              "VAR _ForecastRemaining = _ForecastSimpleYE - _ForecastYTD",
+              "",
+              "VAR _ForecastYE = _ActualYTD + _ForecastRemaining",
+              "",
+              "VAR _Result = _ForecastYE",
+              "",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "YE Variance",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "//VAR _DisplayMult = SELECTEDVALUE ( Nominal[Display Multiplier], -1)",
+              "VAR _Result = ( [YE Budget] - [YE Forecast] )",
+              "RETURN _Result"
+            ]
+          },
+          {
+            "name": "YTD Forecast",
+            "formatString": "#,##0.00",
+            "displayFolder": "Time Intelligence",
+            "expression": [
+              "VAR _YTDForecast =",
+              "    CALCULATE(",
+              "        [Forecast],",
+              "        DATESYTD( Calendar[Date], \"31-Aug\" )",
+              "    )",
+              "VAR _Result = _YTDForecast",
+              "RETURN",
+              "    _Result"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "name": "AccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "AccountLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AccountLocationId"
+          },
+          {
+            "name": "AuditId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "AuditId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "ForcastNameId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "ForcastNameId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "NominalId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "NominalLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NominalLocationId"
+          },
+          {
+            "name": "Period End Date",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "Period End Date",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "SecurityId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SecurityId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "Value",
+            "dataType": "decimal",
+            "isHidden": true,
+            "sourceColumn": "Value",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Location (Account)",
+        "partitions": [
+          {
+            "name": "Location (Account)",
+            "mode": "import",
+            "queryGroup": "Conformed",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source             = PowerPlatform.Dataflows ( null ), ",
+                "  Workspaces         = Source{[ Id = \"Workspaces\" ]}[Data], ",
+                "  Workspace          = Workspaces{[ workspaceName = \"DW-Dataflows-Conformed\" ]}[Data], ",
+                "  Dataflow           = Workspace{[ dataflowName = \"Con-General\" ]}[Data], ",
+                "  Entity             = Dataflow{[ entity = \"dimSites\", version = \"\" ]}[Data], ",
+                "  FilteredRows       = Table.SelectRows (",
+                "    Entity, ",
+                "    each (",
+                "      [Finance Location Code] <> \"Global\" ",
+                "    )",
+                "  ), ",
+                "  RemoveOtherColumns = Table.SelectColumns (",
+                "    FilteredRows, ",
+                "    { \"SiteId\", \"Finance Location Code\", \"Education Location Code\", \"Academy Code\", \"Site Name\" }",
+                "  )",
+                "in",
+                "  RemoveOtherColumns"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "AccountLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "SiteId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              }
+            ]
+          },
+          {
+            "name": "Finance Code (Account)",
+            "dataType": "string",
+            "sourceColumn": "Finance Location Code"
+          },
+          {
+            "name": "Location Code (Account)",
+            "dataType": "string",
+            "sourceColumn": "Academy Code"
+          },
+          {
+            "name": "Location Name (Account)",
+            "dataType": "string",
+            "sourceColumn": "Site Name",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Location (Nominal)",
+        "partitions": [
+          {
+            "name": "Location (Nominal)",
+            "mode": "import",
+            "queryGroup": "Conformed",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source             = PowerPlatform.Dataflows ( null ), ",
+                "  Workspaces         = Source{[ Id = \"Workspaces\" ]}[Data], ",
+                "  Workspace          = Workspaces{[ workspaceName = \"DW-Dataflows-Conformed\" ]}[Data], ",
+                "  Dataflow           = Workspace{[ dataflowName = \"Con-General\" ]}[Data], ",
+                "  Entity             = Dataflow{[ entity = \"dimSites\", version = \"\" ]}[Data], ",
+                "  FilteredRows       = Table.SelectRows (",
+                "    Entity, ",
+                "    each (",
+                "      [Finance Location Code] <> \"Global\"",
+                "    )",
+                "  ), ",
+                "  RemoveOtherColumns = Table.SelectColumns (",
+                "    FilteredRows, ",
+                "    { \"SiteId\", \"Finance Location Code\", \"Education Location Code\", \"Academy Code\", \"Site Name\" }",
+                "  )",
+                "in",
+                "  RemoveOtherColumns"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Finance Code (Nominal)",
+            "dataType": "string",
+            "sourceColumn": "Finance Location Code"
+          },
+          {
+            "name": "Location Code (Nominal)",
+            "dataType": "string",
+            "sourceColumn": "Academy Code"
+          },
+          {
+            "name": "Location Name (Nominal)",
+            "dataType": "string",
+            "sourceColumn": "Site Name"
+          },
+          {
+            "name": "NominalLocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "SiteId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "Measure Details",
+        "description": "Table containing measure meta data.",
+        "isHidden": true,
+        "partitions": [
+          {
+            "name": "Measure Details",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Helper_Measures\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Allow Scale Change",
+            "dataType": "boolean",
+            "sourceColumn": "Allow Scale Change"
+          },
+          {
+            "name": "Allow Sign Change",
+            "dataType": "boolean",
+            "sourceColumn": "Allow Sign Change"
+          },
+          {
+            "name": "Description",
+            "dataType": "string",
+            "sourceColumn": "Description"
+          },
+          {
+            "name": "Measure Name",
+            "dataType": "string",
+            "sourceColumn": "Measure Name"
+          },
+          {
+            "name": "Measure Table",
+            "dataType": "string",
+            "sourceColumn": "Measure Table"
+          }
+        ]
+      },
+      {
+        "name": "Nominal",
+        "partitions": [
+          {
+            "name": "Nominal",
+            "mode": "import",
+            "queryGroup": "Finance\\Dimensions",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"fin\", Item = \"Dim_Nominals\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "CFR Code",
+            "dataType": "string",
+            "sourceColumn": "CFR Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "CFR Group",
+            "dataType": "string",
+            "sourceColumn": "CFR Group",
+            "sortByColumn": "CFR Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Core Nominal Code",
+            "dataType": "string",
+            "sourceColumn": "Core Nominal Code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Core Nominal",
+            "dataType": "string",
+            "sourceColumn": "Core Nominal",
+            "sortByColumn": "Core Nominal Code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "DFE Chart of Accounts Code",
+            "dataType": "string",
+            "sourceColumn": "DFE Chart of Accounts Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "DFE Chart of Accounts Group",
+            "dataType": "string",
+            "sourceColumn": "DFE Chart of Accounts Group",
+            "sortByColumn": "DFE Chart of Accounts Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Display Multiplier",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Display Multiplier",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EFA Benchmark Return Code",
+            "dataType": "string",
+            "sourceColumn": "EFA Benchmark Return Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EFA Benchmark Return Group",
+            "dataType": "string",
+            "sourceColumn": "EFA Benchmark Return Group",
+            "sortByColumn": "EFA Benchmark Return Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EFA Budget Forecast Code",
+            "dataType": "string",
+            "sourceColumn": "EFA Budget Forecast Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "EFA Budget Forecast Group",
+            "dataType": "string",
+            "sourceColumn": "EFA Budget Forecast Group",
+            "sortByColumn": "EFA Budget Forecast Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Include in Management Accounts?",
+            "dataType": "string",
+            "description": [
+              "This flag is set at Reporting Group level (eg A0). It is manually set in:",
+              "[ALT-DW].[fin].[Help_ReportingGroups]"
+            ],
+            "sourceColumn": "Include in Management Accounts?",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Nominal Code",
+            "dataType": "string",
+            "sourceColumn": "Nominal Code",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "NominalId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isUnique": true,
+            "isKey": true,
+            "isNullable": false,
+            "sourceColumn": "NominalId",
+            "formatString": "0",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"NumberWhole\" Accuracy=\"0\" />"
+              },
+              {
+                "name": "PBI_ChangedProperties",
+                "value": "[\"IsHidden\"]"
+              }
+            ]
+          },
+          {
+            "name": "Reporting Group Code",
+            "dataType": "string",
+            "sourceColumn": "Reporting Group Code",
+            "displayFolder": "Management Account Sections",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Reporting Group Section Code",
+            "dataType": "string",
+            "sourceColumn": "Reporting Group Section Code",
+            "displayFolder": "Management Account Sections",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "Reporting Group Section Order",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Reporting Group Section Order",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Reporting Group Section",
+            "dataType": "string",
+            "sourceColumn": "Reporting Group Section",
+            "sortByColumn": "Reporting Group Section Order",
+            "displayFolder": "Management Account Sections",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Reporting Group",
+            "dataType": "string",
+            "sourceColumn": "Reporting Group",
+            "sortByColumn": "Reporting Group Code",
+            "displayFolder": "Management Account Sections",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "SOFA Code",
+            "dataType": "string",
+            "sourceColumn": "SOFA Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          },
+          {
+            "name": "SOFA Group",
+            "dataType": "string",
+            "sourceColumn": "SOFA Group",
+            "sortByColumn": "SOFA Code",
+            "displayFolder": "Analysis Codes",
+            "summarizeBy": "none",
+            "annotations": [
+              {
+                "name": "SummarizationSetBy",
+                "value": "Automatic"
+              },
+              {
+                "name": "Format",
+                "value": "<Format Format=\"Text\" />"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "PSF User",
+        "isHidden": true,
+        "partitions": [
+          {
+            "name": "PSF User",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "  Nav = Source{[Schema = \"fin\", Item = \"Dim_PSFUsers\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "Number of Active Users",
+            "formatString": "#,##0",
+            "expression": [
+              "COUNTROWS ( 'PSF User' )",
+              ""
+            ]
+          },
+          {
+            "name": "Number of Users Who Have More Recent Activity",
+            "formatString": "#,##0",
+            "expression": [
+              "VAR MaxVisibleDate = MAX ( 'Calendar'[Date] )",
+              "RETURN",
+              "    CALCULATE (",
+              "        COUNTROWS ( 'PSF User' ),",
+              "        'Calendar'[Date] >= MaxVisibleDate",
+              "    )"
+            ]
+          },
+          {
+            "name": "User Slicer Filter",
+            "formatString": "#,##0",
+            "expression": "INT ( NOT ( ISEMPTY ( 'PSF User') ) )"
+          }
+        ],
+        "columns": [
+          {
+            "name": "Account Inf PersonId",
+            "dataType": "int64",
+            "sourceColumn": "Account Inf PersonId",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Active",
+            "dataType": "boolean",
+            "sourceColumn": "Active",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Employee No",
+            "dataType": "string",
+            "sourceColumn": "Employee No",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Latest PSF Use",
+            "dataType": "dateTime",
+            "sourceColumn": "Latest PSF Use",
+            "formatString": "dd/mm/yyyy",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Leaving Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Leaving Date",
+            "formatString": "dd/mm/yyyy",
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Office 365 Email",
+            "dataType": "string",
+            "sourceColumn": "Office 365 Email",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Old Account No PersonId",
+            "dataType": "boolean",
+            "sourceColumn": "Old Account No PersonId",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PSF User Name",
+            "dataType": "string",
+            "sourceColumn": "PSF User Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "PSFUserId",
+            "dataType": "int64",
+            "isHidden": true,
+            "isKey": true,
+            "sourceColumn": "PSFUserId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "Static Account",
+            "dataType": "boolean",
+            "sourceColumn": "Static Account",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "Purchase Order Doc",
+        "partitions": [
+          {
+            "name": "Purchase Order Doc",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Dim_CommitmentDocuments\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Commitment",
+            "dataType": "string",
+            "sourceColumn": "Commitment"
+          },
+          {
+            "name": "CommitmentDocumentId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "CommitmentDocumentId"
+          },
+          {
+            "name": "Document Date",
+            "dataType": "dateTime",
+            "sourceColumn": "Document Date",
+            "formatString": "dd/mm/yyyy"
+          },
+          {
+            "name": "Document Description",
+            "dataType": "string",
+            "sourceColumn": "Document Description"
+          },
+          {
+            "name": "Document Number",
+            "dataType": "int64",
+            "sourceColumn": "Document Number"
+          },
+          {
+            "name": "Document Status Code",
+            "dataType": "string",
+            "sourceColumn": "Document Status Code"
+          },
+          {
+            "name": "Document Status",
+            "dataType": "string",
+            "sourceColumn": "Document Status"
+          },
+          {
+            "name": "Document Type Code",
+            "dataType": "string",
+            "sourceColumn": "Document Type Code"
+          }
+        ]
+      },
+      {
+        "name": "Students",
+        "partitions": [
+          {
+            "name": "Students",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "  AnalysisQuery = AnalysisServices.Database(",
+                "    \"powerbi://api.powerbi.com/v1.0/myorg/DW-Models\", ",
+                "    \"Education\", ",
+                "    [",
+                "      Query",
+                "        = \"EVALUATE",
+                "                VAR _InSIMS =",
+                "                    TREATAS ( { 1 }, Student[In SIMS] )",
+                "                VAR _Enrollment =",
+                "                    TREATAS (",
+                "                        { \"\"Single Registration\"\", \"\"Main - Dual Registration\"\" },",
+                "                        Student[Enrollment Status]",
+                "                    )",
+                "                VAR _AM =",
+                "                    TREATAS ( { 1 }, Attendance[AM] )",
+                "",
+                "                RETURN",
+                "                    SUMMARIZECOLUMNS (",
+                "                        Site[SiteId],",
+                "                        'Calendar'[End of Month],",
+                "                        Student[NC Year],",
+                "                        _InSIMS,",
+                "                        _Enrollment,",
+                "                        \"\"Students\"\", [Number Of Students]",
+                "                    )\", ",
+                "      Implementation = \"2.0\"",
+                "    ]",
+                "  ), ",
+                "  RenameCols = Table.RenameColumns(",
+                "    AnalysisQuery, ",
+                "    {",
+                "      {\"Site[SiteId]\", \"LocationId\"}, ",
+                "      {\"Calendar[End of Month]\", \"End of Month\"}, ",
+                "      {\"Student[NC Year]\", \"NCYear\"}, ",
+                "      {\"[Students]\", \"Students\"}",
+                "    }",
+                "  ), ",
+                "  ChangeTypes = Table.TransformColumnTypes(",
+                "    RenameCols, ",
+                "    {{\"LocationId\", Int64.Type}, {\"End of Month\", type date}, {\"NCYear\", Int64.Type}, {\"Students\", Int64.Type}}",
+                "  )",
+                "in",
+                "  ChangeTypes"
+              ]
+            }
+          }
+        ],
+        "measures": [
+          {
+            "name": "# Students",
+            "description": "Currently only a simple average. Needs hardening.",
+            "formatString": "#,##0",
+            "expression": [
+              "AVERAGEX (",
+              "    VALUES( Calendar[End of Month] ),",
+              "    CALCULATE ( SUM ( Students[Students] ) )",
+              ")"
+            ]
+          }
+        ],
+        "columns": [
+          {
+            "name": "End of Month",
+            "dataType": "dateTime",
+            "isHidden": true,
+            "sourceColumn": "End of Month"
+          },
+          {
+            "name": "LocationId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "LocationId"
+          },
+          {
+            "name": "NCYear",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "NCYear"
+          },
+          {
+            "name": "Students",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "Students"
+          }
+        ]
+      },
+      {
+        "name": "User",
+        "description": "RLS User Table. Security by default is set to not propagate. You need to add a page/report filter onto Email as \"Is Not Blank\" to turn RLS on.",
+        "partitions": [
+          {
+            "name": "User",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Dim_Users\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "Email",
+            "dataType": "string",
+            "sourceColumn": "Email",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          },
+          {
+            "name": "UserGroupId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "UserGroupId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value"
+          }
+        ]
+      },
+      {
+        "name": "UserGroupSecurity",
+        "isHidden": true,
+        "partitions": [
+          {
+            "name": "UserGroupSecurity",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Dim_UserGroupSecurity\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "SecurityId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "SecurityId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "UserGroupId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "UserGroupId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          }
+        ]
+      },
+      {
+        "name": "XAccount",
+        "partitions": [
+          {
+            "name": "XAccount",
+            "source": {
+              "type": "m",
+              "expression": [
+                "let",
+                "    Source = Sql.Database(\"core-sys-dw01\", \"ALT-DW\"),",
+                "    Nav = Source{[Schema = \"fin\", Item = \"Dim_XAccounts\"]}[Data]",
+                "in",
+                "  Nav"
+              ]
+            }
+          }
+        ],
+        "columns": [
+          {
+            "name": "XAccount Code",
+            "dataType": "string",
+            "sourceColumn": "XAccount Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "XAccount Name",
+            "dataType": "string",
+            "sourceColumn": "XAccount Name",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "XAccountId",
+            "dataType": "int64",
+            "isHidden": true,
+            "sourceColumn": "XAccountId",
+            "isAvailableInMdx": false,
+            "encodingHint": "value",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "XLedger Code",
+            "dataType": "string",
+            "sourceColumn": "XLedger Code",
+            "summarizeBy": "none"
+          },
+          {
+            "name": "XLedger Name",
+            "dataType": "string",
+            "sourceColumn": "XLedger Name",
+            "summarizeBy": "none"
+          }
+        ]
+      }
+    ],
+    "cultures": [
+      {
+        "name": "en-GB",
+        "linguisticMetadata": {
+          "content": {
+            "Version": "1.0.0",
+            "Language": "en-GB",
+            "DynamicImprovement": "HighConfidence"
+          },
+          "contentType": "json"
+        }
+      }
+    ]
+  }
+}

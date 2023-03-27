@@ -1,0 +1,8 @@
+{
+  "name": "EFA Budget Forecast Group",
+  "dataType": "string",
+  "sourceColumn": "EFA Budget Forecast Group",
+  "sortByColumn": "EFA Budget Forecast Code",
+  "displayFolder": "Analysis Codes",
+  "summarizeBy": "none"
+}

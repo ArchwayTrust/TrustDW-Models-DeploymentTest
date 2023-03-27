@@ -1,0 +1,6 @@
+{
+  "name": "Ledger Name",
+  "dataType": "string",
+  "sourceColumn": "Ledger Name",
+  "summarizeBy": "none"
+}

@@ -1,0 +1,6 @@
+VAR MaxVisibleDate = MAX ( 'Calendar'[Date] )
+RETURN
+    CALCULATE (
+        COUNTROWS ( 'PSF User' ),
+        'Calendar'[Date] >= MaxVisibleDate
+    )

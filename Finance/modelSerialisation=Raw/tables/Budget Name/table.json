@@ -1,0 +1,13 @@
+{
+  "name": "Budget Name",
+  "partitions": [
+    {
+      "name": "Budget Name",
+      "mode": "import",
+      "queryGroup": "Finance\\Dimensions",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

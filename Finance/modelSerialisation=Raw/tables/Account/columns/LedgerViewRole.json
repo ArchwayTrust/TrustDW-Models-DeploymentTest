@@ -1,0 +1,8 @@
+{
+  "name": "LedgerViewRole",
+  "dataType": "string",
+  "isHidden": true,
+  "sourceColumn": "LedgerViewRole",
+  "isAvailableInMdx": false,
+  "summarizeBy": "none"
+}

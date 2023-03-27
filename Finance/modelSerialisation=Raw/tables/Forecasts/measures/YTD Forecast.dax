@@ -1,0 +1,8 @@
+VAR _YTDForecast =
+    CALCULATE(
+        [Forecast],
+        DATESYTD( Calendar[Date], "31-Aug" )
+    )
+VAR _Result = _YTDForecast
+RETURN
+    _Result

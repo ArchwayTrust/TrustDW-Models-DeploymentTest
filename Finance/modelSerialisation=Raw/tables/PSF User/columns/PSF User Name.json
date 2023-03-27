@@ -1,0 +1,6 @@
+{
+  "name": "PSF User Name",
+  "dataType": "string",
+  "sourceColumn": "PSF User Name",
+  "summarizeBy": "none"
+}

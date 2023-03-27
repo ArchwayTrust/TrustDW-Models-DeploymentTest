@@ -1,0 +1,5 @@
+{
+  "name": "Allow Scale Change",
+  "dataType": "boolean",
+  "sourceColumn": "Allow Scale Change"
+}

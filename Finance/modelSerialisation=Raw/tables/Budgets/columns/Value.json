@@ -1,0 +1,10 @@
+{
+  "name": "Value",
+  "dataType": "decimal",
+  "isHidden": true,
+  "sourceColumn": "Value",
+  "formatString": "#,##0.00",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

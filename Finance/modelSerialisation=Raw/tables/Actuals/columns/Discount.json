@@ -1,0 +1,23 @@
+{
+  "name": "Discount",
+  "dataType": "decimal",
+  "isHidden": true,
+  "sourceColumn": "Discount",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none",
+  "annotations": [
+    {
+      "name": "SummarizationSetBy",
+      "value": "User"
+    },
+    {
+      "name": "Format",
+      "value": "<Format Format=\"General\" />"
+    },
+    {
+      "name": "PBI_ChangedProperties",
+      "value": "[\"IsHidden\"]"
+    }
+  ]
+}

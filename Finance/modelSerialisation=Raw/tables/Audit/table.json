@@ -1,0 +1,15 @@
+{
+  "name": "Audit",
+  "description": "Update times and dates.",
+  "isHidden": true,
+  "partitions": [
+    {
+      "name": "Audit",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

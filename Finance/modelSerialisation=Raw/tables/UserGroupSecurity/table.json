@@ -1,0 +1,12 @@
+{
+  "name": "UserGroupSecurity",
+  "isHidden": true,
+  "partitions": [
+    {
+      "name": "UserGroupSecurity",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

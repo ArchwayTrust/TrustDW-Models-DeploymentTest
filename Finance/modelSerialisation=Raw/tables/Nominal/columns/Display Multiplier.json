@@ -1,0 +1,9 @@
+{
+  "name": "Display Multiplier",
+  "dataType": "int64",
+  "isHidden": true,
+  "sourceColumn": "Display Multiplier",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

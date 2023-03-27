@@ -1,0 +1,11 @@
+{
+  "name": "Actuals Exist",
+  "formatString": "#,##0",
+  "displayFolder": "Slicer Filters",
+  "annotations": [
+    {
+      "name": "PBI_ChangedProperties",
+      "value": "[\"DisplayFolder\"]"
+    }
+  ]
+}

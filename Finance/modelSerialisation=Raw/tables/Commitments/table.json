@@ -1,0 +1,11 @@
+{
+  "name": "Commitments",
+  "partitions": [
+    {
+      "name": "Commitments",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

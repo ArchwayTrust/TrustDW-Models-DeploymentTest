@@ -1,0 +1,13 @@
+{
+  "name": "Measure Details",
+  "description": "Table containing measure meta data.",
+  "isHidden": true,
+  "partitions": [
+    {
+      "name": "Measure Details",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

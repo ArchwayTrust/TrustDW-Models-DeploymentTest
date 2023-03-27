@@ -1,0 +1,11 @@
+{
+  "name": "Purchase Order Doc",
+  "partitions": [
+    {
+      "name": "Purchase Order Doc",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "name": "Actuals",
+  "description": "Actuals data from PSF.",
+  "partitions": [
+    {
+      "name": "Actuals",
+      "mode": "import",
+      "queryGroup": "Finance\\Facts",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

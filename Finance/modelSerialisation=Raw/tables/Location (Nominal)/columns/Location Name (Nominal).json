@@ -1,0 +1,5 @@
+{
+  "name": "Location Name (Nominal)",
+  "dataType": "string",
+  "sourceColumn": "Site Name"
+}

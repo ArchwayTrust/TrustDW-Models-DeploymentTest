@@ -1,0 +1,5 @@
+{
+  "name": "Actual",
+  "description": "Sum of actual values from PSF.",
+  "formatString": "#,##0.00"
+}

@@ -1,0 +1,6 @@
+{
+  "name": "Active",
+  "dataType": "boolean",
+  "sourceColumn": "Active",
+  "summarizeBy": "none"
+}

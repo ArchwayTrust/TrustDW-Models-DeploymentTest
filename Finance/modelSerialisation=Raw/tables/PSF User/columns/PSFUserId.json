@@ -1,0 +1,10 @@
+{
+  "name": "PSFUserId",
+  "dataType": "int64",
+  "isHidden": true,
+  "isKey": true,
+  "sourceColumn": "PSFUserId",
+  "isAvailableInMdx": false,
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

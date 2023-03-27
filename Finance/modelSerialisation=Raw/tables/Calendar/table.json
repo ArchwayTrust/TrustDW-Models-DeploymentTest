@@ -1,0 +1,15 @@
+{
+  "name": "Calendar",
+  "description": "Financial Calendar",
+  "dataCategory": "Time",
+  "partitions": [
+    {
+      "name": "Calendar",
+      "mode": "import",
+      "queryGroup": "Conformed",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}

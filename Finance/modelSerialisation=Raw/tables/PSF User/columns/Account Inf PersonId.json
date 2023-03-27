@@ -1,0 +1,7 @@
+{
+  "name": "Account Inf PersonId",
+  "dataType": "int64",
+  "sourceColumn": "Account Inf PersonId",
+  "encodingHint": "value",
+  "summarizeBy": "none"
+}

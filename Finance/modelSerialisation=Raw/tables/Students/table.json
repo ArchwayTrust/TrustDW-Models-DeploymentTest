@@ -1,0 +1,11 @@
+{
+  "name": "Students",
+  "partitions": [
+    {
+      "name": "Students",
+      "source": {
+        "type": "m"
+      }
+    }
+  ]
+}
