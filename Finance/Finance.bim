@@ -4,7 +4,7 @@
   "compatibilityLevel": 1601,
   "model": {
     "name": "Finance",
-    "description": "Analytics model using data from PSF.",
+    "description": "Analytics model using data from PSF. Test",
     "culture": "en-GB",
     "dataAccessOptions": {
       "legacyRedirects": false,
