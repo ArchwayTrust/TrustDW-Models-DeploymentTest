@@ -15,8 +15,8 @@ on:
         required: true
         default: true
 
-env:
-  PROFILE: Test
+#env:
+ # PROFILE: Test
 
 jobs:
   Deployment:
