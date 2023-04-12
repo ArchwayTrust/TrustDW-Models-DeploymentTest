@@ -2,6 +2,7 @@
 model Finance
 	compatibilityLevel: 1601
 	culture: en-GB
+	defaultPowerBIDataSourceVersion: PowerBI_V3
 	discourageImplicitMeasures
 	ID: 139ae211-cd26-463a-8df7-9eb0f09c5d75
 	sourceQueryCulture: en-GB
