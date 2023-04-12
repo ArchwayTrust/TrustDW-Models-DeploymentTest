@@ -1,0 +1,222 @@
+table Nominal
+	ordinal: 17
+
+	partition Nominal = M
+		mode: Import
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "fin", Item = "Dim_Nominals"]}[Data]
+			in
+			  Nav
+
+		queryGroup: 'Finance\Dimensions'
+
+	column 'CFR Code'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sourceColumn: "CFR Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'CFR Group'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sortByColumn: 'CFR Code'
+		sourceColumn: "CFR Group"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Core Nominal Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Core Nominal Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Core Nominal'
+		dataType: String
+		isDataTypeInferred: false
+		sortByColumn: 'Core Nominal Code'
+		sourceColumn: "Core Nominal"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'DFE Chart of Accounts Code'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sourceColumn: "DFE Chart of Accounts Code"
+		summarizeBy: None
+
+	column 'DFE Chart of Accounts Group'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sortByColumn: 'DFE Chart of Accounts Code'
+		sourceColumn: "DFE Chart of Accounts Group"
+		summarizeBy: None
+
+	column 'Display Multiplier'
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Display Multiplier"
+		summarizeBy: None
+
+	column 'EFA Benchmark Return Code'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sourceColumn: "EFA Benchmark Return Code"
+		summarizeBy: None
+
+	column 'EFA Benchmark Return Group'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sortByColumn: 'EFA Benchmark Return Code'
+		sourceColumn: "EFA Benchmark Return Group"
+		summarizeBy: None
+
+	column 'EFA Budget Forecast Code'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sourceColumn: "EFA Budget Forecast Code"
+		summarizeBy: None
+
+	column 'EFA Budget Forecast Group'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sortByColumn: 'EFA Budget Forecast Code'
+		sourceColumn: "EFA Budget Forecast Group"
+		summarizeBy: None
+
+	/// This flag is set at Reporting Group level (eg A0). It is manually set in:
+	/// [ALT-DW].[fin].[Help_ReportingGroups]
+	column 'Include in Management Accounts?'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Include in Management Accounts?"
+		summarizeBy: None
+
+	column 'Nominal Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Nominal Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column NominalId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: NominalId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column 'Reporting Group Code'
+		dataType: String
+		displayFolder: "Management Account Sections"
+		isDataTypeInferred: false
+		sourceColumn: "Reporting Group Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Reporting Group Section Code'
+		dataType: String
+		displayFolder: "Management Account Sections"
+		isDataTypeInferred: false
+		sourceColumn: "Reporting Group Section Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Reporting Group Section Order'
+		dataType: Int64
+		encodingHint: Value
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Reporting Group Section Order"
+		summarizeBy: None
+
+	column 'Reporting Group Section'
+		dataType: String
+		displayFolder: "Management Account Sections"
+		isDataTypeInferred: false
+		sortByColumn: 'Reporting Group Section Order'
+		sourceColumn: "Reporting Group Section"
+		summarizeBy: None
+
+	column 'Reporting Group'
+		dataType: String
+		displayFolder: "Management Account Sections"
+		isDataTypeInferred: false
+		sortByColumn: 'Reporting Group Code'
+		sourceColumn: "Reporting Group"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'SOFA Code'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sourceColumn: "SOFA Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'SOFA Group'
+		dataType: String
+		displayFolder: "Analysis Codes"
+		isDataTypeInferred: false
+		sortByColumn: 'SOFA Code'
+		sourceColumn: "SOFA Group"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+

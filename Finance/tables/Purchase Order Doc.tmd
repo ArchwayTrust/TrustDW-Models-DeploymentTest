@@ -1,0 +1,54 @@
+table 'Purchase Order Doc'
+	ordinal: 19
+
+	partition 'Purchase Order Doc' = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Dim_CommitmentDocuments"]}[Data]
+			in
+			  Nav
+
+
+	column Commitment
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: Commitment
+
+	column CommitmentDocumentId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: CommitmentDocumentId
+
+	column 'Document Date'
+		dataType: DateTime
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		sourceColumn: "Document Date"
+
+	column 'Document Description'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Description"
+
+	column 'Document Number'
+		dataType: Int64
+		isDataTypeInferred: false
+		sourceColumn: "Document Number"
+
+	column 'Document Status Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Status Code"
+
+	column 'Document Status'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Status"
+
+	column 'Document Type Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Type Code"
+

@@ -1,5 +1,0 @@
-{
-  "name": "Forecast",
-  "description": "Sum of forecast values from PSF.",
-  "formatString": "#,##0.00"
-}

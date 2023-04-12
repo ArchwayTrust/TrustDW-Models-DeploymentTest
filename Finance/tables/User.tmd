@@ -1,0 +1,28 @@
+/// RLS User Table. Security by default is set to not propagate. You need to add a page/report filter onto Email as "Is Not Blank" to turn RLS on.
+table User
+	ordinal: 21
+
+	partition User = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Dim_Users"]}[Data]
+			in
+			  Nav
+
+
+	column Email
+		dataType: String
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		sourceColumn: Email
+
+	column UserGroupId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: UserGroupId
+

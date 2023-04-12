@@ -1,0 +1,65 @@
+table 'Budget Name'
+	ordinal: 5
+
+	partition 'Budget Name' = M
+		mode: Import
+		expression:=
+			let
+			    Source = Sql.Databases("core-sys-dw01"),
+			    DB = Source{[Name="ALT-DW"]}[Data],
+			    SQL = Value.NativeQuery(
+			            DB,
+			            "SELECT
+				            n.BudgetNameId,
+				            n.[Budget Code],
+			                n.[Budget Title]
+			            FROM fin.Dim_BudgetNames AS n
+			            WHERE NOT (n.[Budget Code] LIKE '%FC%'
+			                OR n.[Budget Code] LIKE '%FOR%')",
+			            null,
+			            [EnableFolding = true]
+			  )
+			in
+			    SQL
+
+		queryGroup: 'Finance\Dimensions'
+
+	column 'Budget Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Budget Code"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Budget Title'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Budget Title"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column BudgetNameId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: BudgetNameId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+

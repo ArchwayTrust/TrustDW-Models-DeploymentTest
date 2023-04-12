@@ -1,6 +1,0 @@
-{
-  "name": "Account Code",
-  "dataType": "string",
-  "sourceColumn": "Account Code",
-  "summarizeBy": "none"
-}

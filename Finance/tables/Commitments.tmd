@@ -1,0 +1,115 @@
+table Commitments
+	ordinal: 8
+
+	partition Commitments = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Fact_Commitments"]}[Data],
+			    RemoveCol = Table.RemoveColumns(Nav, {"FinancialPeriodId"})
+			in
+			  RemoveCol
+
+
+	/// Includes GRN and POAUT.
+	measure Commitment =
+		SUMX(
+		    Commitments,
+		    Commitments[Value] * Commitments[Commited]
+		)
+
+		formatString:= #,##0.00; +#,##0.00
+
+	measure 'YTD Commitment' = CALCULATE( [Commitment], DATESYTD( Calendar[Date], "31-Aug" ) )
+		formatString:= #,##0.00; +#,##0.00
+
+	column AccountId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountId
+
+	column AccountLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountLocationId
+
+	column AuditId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AuditId
+
+	column Commited
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Commited
+
+	column CommitmentDocumentId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: CommitmentDocumentId
+
+	column NominalId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalId
+
+	column NominalLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalLocationId
+
+	column PeriodEndDate
+		dataType: DateTime
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: PeriodEndDate
+
+	column RefNo
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: RefNo
+
+	column SecurityId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: SecurityId
+
+	column Value
+		dataType: Decimal
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Value
+
+	column XAccountId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: XAccountId
+

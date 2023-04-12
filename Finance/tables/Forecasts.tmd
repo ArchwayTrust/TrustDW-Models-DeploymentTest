@@ -1,0 +1,178 @@
+/// Forecast data from PSF. 
+/// Only pulls through those that have codes containing FC or FOR.
+/// 
+table Forecasts
+	ordinal: 13
+
+	partition Forecasts = M
+		expression:=
+			let
+			    Source = Sql.Databases("core-sys-dw01"),
+			    DB = Source{[Name="ALT-DW"]}[Data],
+			    SQL = Value.NativeQuery(
+			            DB,
+			            "SELECT
+			                b.NominalLocationId,
+			                b.AccountLocationId,
+			                b.NominalId,
+			                b.AccountId,
+			                b.BudgetNameId AS [ForcastNameId],
+			                b.[Period End Date],
+			                b.SecurityId,
+			                b.AuditId,
+			                b.[Value]
+			            FROM fin.Fact_Budgets AS b
+			            INNER JOIN fin.Dim_BudgetNames AS n ON b.BudgetNameId = n.BudgetNameId 
+			            WHERE n.[Budget Code] LIKE '%FC%'
+			                OR n.[Budget Code] LIKE '%FOR%'",
+			            null,
+			            [EnableFolding = true]
+			  )
+			in
+			    SQL
+
+
+	/// Sum of forecast values from PSF.
+	measure Forecast =
+		//VAR _DisplayMult = SELECTEDVALUE ( Nominal[Display Multiplier], -1)
+		VAR _Forecast = SUM( Forecasts[Value] ) 
+		VAR _ForecastDisplay =
+		    IF(
+		        ISFILTERED( 'Actual Description' ) || ISFILTERED ( XAccount ),
+		        BLANK( ),
+		        _Forecast
+		    )
+		VAR _Result = _ForecastDisplay
+		RETURN
+		    _Result
+
+		formatString:= #,##0.00
+
+	measure 'YE Forecast Per Student' =
+		DIVIDE (
+		    [YE Forecast],
+		    [# Students]
+		)
+
+		displayFolder: CLFP
+		formatString:= #,##0.00
+
+	/// Takes actual YTD and adds on forecast for future periods.
+	measure 'YE Forecast' =
+		VAR _ActualYTD = [YTD Actual]
+		
+		VAR _ForecastYTD = [YTD Forecast]
+		
+		VAR _ForecastSimpleYE = 
+		    CALCULATE (
+		        [Forecast],
+		        REMOVEFILTERS ( 'Calendar' ),
+		        VALUES ( Calendar[Academic Year] )
+		    )
+		
+		VAR _ForecastRemaining = _ForecastSimpleYE - _ForecastYTD
+		
+		VAR _ForecastYE = _ActualYTD + _ForecastRemaining
+		
+		VAR _Result = _ForecastYE
+		
+		RETURN _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	measure 'YE Variance' =
+		//VAR _DisplayMult = SELECTEDVALUE ( Nominal[Display Multiplier], -1)
+		VAR _Result = ( [YE Budget] - [YE Forecast] )
+		RETURN _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	measure 'YTD Forecast' =
+		VAR _YTDForecast =
+		    CALCULATE(
+		        [Forecast],
+		        DATESYTD( Calendar[Date], "31-Aug" )
+		    )
+		VAR _Result = _YTDForecast
+		RETURN
+		    _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	column AccountId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountId
+		summarizeBy: None
+
+	column AccountLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountLocationId
+
+	column AuditId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AuditId
+		summarizeBy: None
+
+	column ForcastNameId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ForcastNameId
+		summarizeBy: None
+
+	column NominalId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalId
+		summarizeBy: None
+
+	column NominalLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalLocationId
+
+	column 'Period End Date'
+		dataType: DateTime
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Period End Date"
+		summarizeBy: None
+
+	column SecurityId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: SecurityId
+
+	column Value
+		dataType: Decimal
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Value
+		summarizeBy: None
+

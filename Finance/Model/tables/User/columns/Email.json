@@ -1,7 +1,0 @@
-{
-  "name": "Email",
-  "dataType": "string",
-  "sourceColumn": "Email",
-  "isAvailableInMdx": false,
-  "encodingHint": "value"
-}

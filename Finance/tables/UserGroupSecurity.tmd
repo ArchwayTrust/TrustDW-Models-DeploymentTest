@@ -1,0 +1,31 @@
+table UserGroupSecurity
+	isHidden
+	ordinal: 22
+
+	partition UserGroupSecurity = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Dim_UserGroupSecurity"]}[Data]
+			in
+			  Nav
+
+
+	column SecurityId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: SecurityId
+		summarizeBy: None
+
+	column UserGroupId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: UserGroupId
+		summarizeBy: None
+

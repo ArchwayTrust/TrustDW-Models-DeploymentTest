@@ -1,0 +1,64 @@
+table 'Location (Account)'
+	ordinal: 14
+
+	partition 'Location (Account)' = M
+		mode: Import
+		expression:=
+			let
+			  Source             = PowerPlatform.Dataflows ( null ), 
+			  Workspaces         = Source{[ Id = "Workspaces" ]}[Data], 
+			  Workspace          = Workspaces{[ workspaceName = "DW-Dataflows-Conformed" ]}[Data], 
+			  Dataflow           = Workspace{[ dataflowName = "Con-General" ]}[Data], 
+			  Entity             = Dataflow{[ entity = "dimSites", version = "" ]}[Data], 
+			  FilteredRows       = Table.SelectRows (
+			    Entity, 
+			    each (
+			      [Finance Location Code] <> "Global" 
+			    )
+			  ), 
+			  RemoveOtherColumns = Table.SelectColumns (
+			    FilteredRows, 
+			    { "SiteId", "Finance Location Code", "Education Location Code", "Academy Code", "Site Name" }
+			  )
+			in
+			  RemoveOtherColumns
+
+		queryGroup: Conformed
+
+	column AccountLocationId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: SiteId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column 'Finance Code (Account)'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Finance Location Code"
+
+	column 'Location Code (Account)'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Academy Code"
+
+	column 'Location Name (Account)'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Site Name"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+

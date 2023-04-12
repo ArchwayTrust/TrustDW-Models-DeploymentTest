@@ -1,6 +1,0 @@
-{
-  "name": "Input Date",
-  "dataType": "dateTime",
-  "sourceColumn": "Input Date",
-  "formatString": "dd/mm/yyyy"
-}

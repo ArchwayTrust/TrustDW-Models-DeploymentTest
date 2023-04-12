@@ -1,6 +1,0 @@
-{
-  "name": "YTD Budget",
-  "description": "YE Budget with a simple 1/12th scaling per month applied.",
-  "formatString": "#,##0.00",
-  "displayFolder": "Time Intelligence"
-}

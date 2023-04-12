@@ -1,0 +1,64 @@
+/// Details for each document.
+table Document
+	ordinal: 10
+
+	partition Document = M
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "fin", Item = "Dim_Documents"]}[Data]
+			in
+			  Nav
+
+
+	column 'Created By'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Created By"
+		summarizeBy: None
+
+	column 'Document Date'
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		sourceColumn: "Document Date"
+		summarizeBy: None
+
+	column 'Document Number'
+		dataType: Int64
+		encodingHint: Value
+		isDataTypeInferred: false
+		sourceColumn: "Document Number"
+		summarizeBy: None
+
+	column 'Document Type Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Type Code"
+		summarizeBy: None
+
+	column 'Document Type'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Document Type"
+		summarizeBy: None
+
+	column DocumentId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: DocumentId
+		summarizeBy: None
+
+	column 'Input Date'
+		dataType: DateTime
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		sourceColumn: "Input Date"
+

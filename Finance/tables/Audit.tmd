@@ -1,0 +1,65 @@
+/// Update times and dates.
+table Audit
+	isHidden
+	ordinal: 4
+
+	partition Audit = M
+		mode: Import
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "com", Item = "Dim_Audit"]}[Data]
+			in
+			  Nav
+
+		queryGroup: Conformed
+
+	column AuditId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: AuditId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column 'Data Source'
+		dataType: String
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Data Source"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column 'Extraction Date Time'
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd-mm-yyyy h:nn
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Extraction Date Time"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="2057" Group="GeneralDateTimeLong" FormatString="G" /></DateTimes></Format>
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+

@@ -1,0 +1,38 @@
+/// Document age groups for those with a status code of Open or Disputed.
+table 'Document Ages'
+	ordinal: 11
+
+	partition 'Document Ages' = M
+		mode: Import
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01","ALT-DW"),
+			    Data = Source{[Schema="fin",Item="Dim_AgedDocuments"]}[Data]
+			in
+			    Data
+
+
+	column AgedDocumentId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AgedDocumentId
+
+	column Description
+		dataType: String
+		isDataTypeInferred: false
+		sortByColumn: AgedDocumentId
+		sourceColumn: Description
+
+	column MaximumDays
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: MaximumDays
+
+	column MinimumDays
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: MinimumDays
+

@@ -1,0 +1,11 @@
+culture 'en-GB'
+	linguisticMetadata:
+		content:=
+			{
+			  "Version": "1.0.0",
+			  "Language": "en-GB",
+			  "DynamicImprovement": "HighConfidence"
+			}
+
+		contentType: Json
+

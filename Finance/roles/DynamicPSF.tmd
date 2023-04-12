@@ -1,0 +1,6 @@
+role DynamicPSF
+	modelPermission: Read
+
+	tablePermission User = User[Email] = USERPRINCIPALNAME()
+		table: User
+

@@ -1,1 +1,0 @@
-INT( NOT ( ISEMPTY( Actuals ) && ISEMPTY( Budgets ) ) )

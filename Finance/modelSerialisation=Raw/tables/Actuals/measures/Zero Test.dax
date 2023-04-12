@@ -1,5 +1,0 @@
-CALCULATE (
-    [Actual],
-    REMOVEFILTERS(),
-    VALUES ( Calendar[Date])
-)

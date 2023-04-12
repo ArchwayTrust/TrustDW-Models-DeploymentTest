@@ -1,7 +1,0 @@
-VAR _VarianceFromBudget = [YTD Variance]
-VAR _YTDBudget = [YTD Budget]
-//VAR _Mult = SELECTEDVALUE( Nominal[Display Multiplier], -1 )
-VAR _Result = DIVIDE( _VarianceFromBudget, _YTDBudget )
-
-RETURN
-    _Result

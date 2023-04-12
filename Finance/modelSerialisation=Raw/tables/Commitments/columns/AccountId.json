@@ -1,8 +1,0 @@
-{
-  "name": "AccountId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "AccountId",
-  "isAvailableInMdx": false,
-  "encodingHint": "value"
-}

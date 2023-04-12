@@ -1,0 +1,399 @@
+/// Actuals data from PSF.
+table Actuals
+	ordinal: 3
+
+	partition Actuals = M
+		mode: Import
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Fact_Actuals"]}[Data],
+			    RemoveCol = Table.RemoveColumns(Nav, {"ActualId", "FinancialPeriodId"})
+			in
+			  RemoveCol
+
+		queryGroup: 'Finance\Facts'
+
+	measure '% of GRN Over 10 Days After POIN' =
+		VAR _tblDocs = 
+		CALCULATETABLE(
+		    SUMMARIZE(
+		        Actuals,
+		        Actuals[DocumentId],
+		        Actuals[GRNDocDate],
+		        Actuals[DocumentDate]
+		    ),
+		    NOT ( ISBLANK( Actuals[GRNDocDate] ) )
+		)
+		
+		VAR _NumDocs = COUNTROWS ( _tblDocs )
+		VAR _NumLate = 
+		    COUNTROWS(
+		        FILTER(
+		            _tblDocs,
+		            Actuals[GRNDocDate] - Actuals[DocumentDate] > 10
+		        )
+		    )
+		    
+		VAR _Result = DIVIDE (_NumLate, _NumDocs)
+		
+		RETURN _Result
+
+		displayFolder: "Team Metrics"
+		formatString:= #,##0.0 %
+
+	measure '% of POINS with Later REQs' =
+		VAR _tblDocs = 
+		CALCULATETABLE(
+		    SUMMARIZE(
+		        Actuals,
+		        Actuals[DocumentId],
+		        Actuals[ReqDocDate],
+		        Actuals[DocumentDate]
+		    ),
+		    NOT ( ISBLANK( Actuals[ReqDocDate] ) )
+		)
+		
+		VAR _NumDocs = COUNTROWS ( _tblDocs )
+		VAR _NumLate = 
+		    COUNTROWS(
+		        FILTER(
+		            _tblDocs,
+		            Actuals[ReqDocDate] > Actuals[DocumentDate]
+		        )
+		    )
+		    
+		VAR _Result = DIVIDE (_NumLate, _NumDocs)
+		
+		RETURN _Result
+
+		displayFolder: "Team Metrics"
+		formatString:= #,##0.0 %
+
+	measure '% Spend of YE Budget' =
+		VAR _Result = 
+		    DIVIDE(
+		        [YTD Actual],
+		        [YE Budget]
+		    )
+		    
+		RETURN _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.0 %
+
+	/// Sum of actual values from PSF.
+	measure Actual =
+		SUM( Actuals[Value] )
+		
+
+		formatString:= #,##0.00
+
+	measure 'Actuals and Budgets Exist' = INT( NOT ( ISEMPTY( Actuals ) && ISEMPTY( Budgets ) ) )
+		displayFolder: "Slicer Filters"
+		formatString:= #,##0
+
+	measure 'Actuals Exist' = INT( NOT ( ISEMPTY( Actuals ) ) )
+		displayFolder: "Slicer Filters"
+		formatString:= #,##0
+
+		annotation PBI_ChangedProperties = ["DisplayFolder"]
+
+	measure 'Extraction Time' =
+		CALCULATE(
+		    MAX( Audit[Extraction Date Time] ),
+		    TREATAS( DISTINCT( Actuals[AuditId] ), Audit[AuditId] )
+		)
+		
+
+		formatString:= dd-mm-yyyy hh:nn
+
+	measure 'Left to Spend' =
+		VAR _Commitment =  
+		    CALCULATE(
+		        [Commitment],
+		        REMOVEFILTERS ( Calendar ),
+		        VALUES ( Calendar[Academic Year] )
+		    )
+		
+		VAR _Variance = [YE Budget] - ( [YTD Actual] + _Commitment )
+		VAR _Result = 
+		    IF(
+		        ISBLANK( [YE Budget] ),
+		        BLANK(),
+		        _Variance
+		        
+		    )
+		RETURN _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	/// Actual Variance from Budget
+	measure Variance =
+		[Budget] - [Actual]
+		
+		//Expenture Variances (Budget – Actual) 
+		//Postitive variance as positive 
+		//Negative variance as negatives 
+		//
+		//Income Variances (Budget – Actual) 
+		//Negative variance as positive 
+		//Positive variance as negative 
+
+		formatString:= #,##0.00
+
+	measure 'YTD % Variance' =
+		VAR _VarianceFromBudget = [YTD Variance]
+		VAR _YTDBudget = [YTD Budget]
+		//VAR _Mult = SELECTEDVALUE( Nominal[Display Multiplier], -1 )
+		VAR _Result = DIVIDE( _VarianceFromBudget, _YTDBudget )
+		
+		RETURN
+		    _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.0 %
+
+	measure 'YTD Actual Per Student' =
+		DIVIDE (
+		    [YTD Actual],
+		    [# Students]
+		)
+
+		displayFolder: CLFP
+		formatString:= #,##0.00
+
+	measure 'YTD Actual' =
+		CALCULATE( 
+		    [Actual], 
+		    DATESYTD( Calendar[Date], "31-Aug" )
+		)
+		
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	measure 'YTD Variance' =
+		[YTD Budget] - [YTD Actual]
+		
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	/// Removes all filters except for date related ones.
+	/// Checks for sum to zero.
+	measure 'Zero Test' =
+		CALCULATE (
+		    [Actual],
+		    REMOVEFILTERS(),
+		    VALUES ( Calendar[Date])
+		)
+
+		formatString:= #,##0.00
+
+	column AccountId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column AccountLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountLocationId
+
+	column ActualDescriptionId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ActualDescriptionId
+		summarizeBy: None
+
+	column ActualStatusId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ActualStatusId
+
+	column AgedDocumentId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AgedDocumentId
+
+	column AuditId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AuditId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column Discount
+		dataType: Decimal
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Discount
+		summarizeBy: None
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="General" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column DocumentDate
+		dataType: DateTime
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: DocumentDate
+
+	column DocumentId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: DocumentId
+		summarizeBy: None
+
+	column GRNDocDate
+		dataType: DateTime
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: GRNDocDate
+
+	column GRNDocNo
+		dataType: String
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: GRNDocNo
+
+	column GRNtoPoinDays
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: GRNtoPoinDays
+
+	column NominalId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column NominalLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalLocationId
+
+	column PeriodEndDate
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd/mm/yyyy
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: PeriodEndDate
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="2057" Group="LongDate" FormatString="D" /></DateTimes></Format>
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column RefNo
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: RefNo
+
+	column ReqDocDate
+		dataType: DateTime
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ReqDocDate
+
+	column ReqDocNo
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ReqDocNo
+
+	column ReqToPoinDays
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: ReqToPoinDays
+
+	column SecurityId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: SecurityId
+		summarizeBy: None
+
+	column Value
+		dataType: Decimal
+		encodingHint: Value
+		formatString:= #,##0.00
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Value
+		summarizeBy: None
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="General" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column XAccountId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: XAccountId
+		summarizeBy: None
+

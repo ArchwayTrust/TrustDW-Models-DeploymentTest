@@ -1,9 +1,0 @@
-{
-  "name": "UserGroupId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "UserGroupId",
-  "isAvailableInMdx": false,
-  "encodingHint": "value",
-  "summarizeBy": "none"
-}

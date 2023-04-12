@@ -1,6 +1,0 @@
-{
-  "name": "CommitmentDocumentId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "CommitmentDocumentId"
-}

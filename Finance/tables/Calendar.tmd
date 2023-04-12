@@ -1,0 +1,111 @@
+/// Financial Calendar
+table Calendar
+	dataCategory: Time
+	ordinal: 7
+
+	partition Calendar = M
+		mode: Import
+		expression:=
+			let
+			    Source = Sql.Databases("core-sys-dw01"),
+			    DB = Source{[Name="ALT-DW"]}[Data],
+			    SQL = Value.NativeQuery(
+			            DB,
+			            "SELECT * FROM fin.vDim_FinancialCalendar",
+			            null,
+			            [EnableFolding = true]
+			  )
+			in
+			    SQL
+
+		queryGroup: Conformed
+
+	measure 'Period Label' =
+		VAR _MaxEndOfPeriod = FORMAT( MAX( 'Calendar'[Period End Date] ), "DD MMMM yyyy" )
+		
+		RETURN "Correct as at " & _MaxEndOfPeriod
+
+
+	column 'Academic Year'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Academic Year"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Access Level'
+		dataType: Int64
+		isDataTypeInferred: false
+		sourceColumn: "Access Level"
+
+	column Date
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: Date
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="2057" Group="LongDate" FormatString="D" /></DateTimes></Format>
+
+	column 'End of Month'
+		dataType: DateTime
+		isDataTypeInferred: false
+		sourceColumn: "End of Month"
+
+	column 'Financial Period & Year'
+		dataType: String
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		sourceColumn: "Financial Period & Year"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column 'Financial Period'
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		sourceColumn: "Financial Period"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = User
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+	column 'Financial Year'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Financial Year"
+
+	column 'Period End Date'
+		dataType: DateTime
+		isDataTypeInferred: false
+		sourceColumn: "Period End Date"
+
+	column 'Period State'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Period State"
+
+	column PeriodOrder
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: PeriodOrder
+

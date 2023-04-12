@@ -1,4 +1,0 @@
-AVERAGEX (
-    VALUES( Calendar[End of Month] ),
-    CALCULATE ( SUM ( Students[Students] ) )
-)

@@ -1,0 +1,45 @@
+table XAccount
+	ordinal: 23
+
+	partition XAccount = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Dim_XAccounts"]}[Data]
+			in
+			  Nav
+
+
+	column 'XAccount Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "XAccount Code"
+		summarizeBy: None
+
+	column 'XAccount Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "XAccount Name"
+		summarizeBy: None
+
+	column XAccountId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: XAccountId
+		summarizeBy: None
+
+	column 'XLedger Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "XLedger Code"
+		summarizeBy: None
+
+	column 'XLedger Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "XLedger Name"
+		summarizeBy: None
+

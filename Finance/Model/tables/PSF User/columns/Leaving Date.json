@@ -1,8 +1,0 @@
-{
-  "name": "Leaving Date",
-  "dataType": "dateTime",
-  "sourceColumn": "Leaving Date",
-  "formatString": "dd/mm/yyyy",
-  "encodingHint": "value",
-  "summarizeBy": "none"
-}

@@ -1,6 +1,0 @@
-{
-  "name": "DocumentDate",
-  "dataType": "dateTime",
-  "isHidden": true,
-  "sourceColumn": "DocumentDate"
-}

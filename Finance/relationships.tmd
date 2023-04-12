@@ -1,0 +1,163 @@
+relationship '3a39f735-1039-4b91-92d5-8449761c10ab'
+	fromColumn: Budgets.AccountId
+	toColumn: Account.AccountId
+
+relationship '4377041a-d951-4e41-b5b3-cd9ef0342d92'
+	fromColumn: Actuals.AccountId
+	toColumn: Account.AccountId
+
+relationship '50469c37-59f3-4937-923f-6df39b25ad6c'
+	fromColumn: Budgets.NominalId
+	toColumn: Nominal.NominalId
+
+relationship '5172aed4-2546-4e5e-b9ae-45164435282b'
+	fromColumn: Actuals.NominalId
+	toColumn: Nominal.NominalId
+
+relationship '17f32684-3550-41ff-96be-7ec260fe6172'
+	fromColumn: Budgets.AuditId
+	toColumn: Audit.AuditId
+
+relationship 'be6c1b81-c554-4cfe-9377-5106a2ef1e34'
+	fromColumn: Budgets.BudgetNameId
+	toColumn: 'Budget Name'.BudgetNameId
+
+relationship '878bcc13-ea07-4cc8-be6c-b28044bd29ff'
+	fromColumn: Actuals.AuditId
+	toColumn: Audit.AuditId
+
+relationship '4a351503-f6fb-4017-bd5c-22d7b9d8b7cb'
+	fromColumn: 'PSF User'.'Latest PSF Use'
+	toColumn: Calendar.Date
+
+relationship '48c29ade-8303-4cfe-bfae-136044298cd9'
+	fromColumn: Actuals.DocumentId
+	toColumn: Document.DocumentId
+
+relationship 'a66f495b-134a-4b2c-9165-f59566813e5e'
+	fromColumn: Actuals.ActualDescriptionId
+	toColumn: 'Actual Description'.ActualDescriptionId
+
+relationship 'b4830e2c-77d2-4151-9fc4-b76fd4c5b68f'
+	fromColumn: Forecasts.AuditId
+	toColumn: Audit.AuditId
+
+relationship 'e133ad95-9ed1-4b3d-baf7-8f29262119de'
+	fromColumn: Forecasts.AccountId
+	toColumn: Account.AccountId
+
+relationship 'b0559e5c-ae92-46a7-a4b8-d913e180d359'
+	fromColumn: Forecasts.NominalId
+	toColumn: Nominal.NominalId
+
+relationship 'aecbbda1-c0ec-41ea-a9f4-ff1834fb0a06'
+	fromColumn: Forecasts.ForcastNameId
+	toColumn: 'Forecast Name'.ForecastNameId
+
+relationship 'ac0b1ace-3930-4d67-ab5a-f86fdbf37f0f'
+	fromColumn: Forecasts.'Period End Date'
+	toColumn: Calendar.Date
+
+relationship '1aba1d0a-c31d-4350-9c6b-ee3f650998b4'
+	fromColumn: Actuals.PeriodEndDate
+	toColumn: Calendar.Date
+
+relationship '95d6b2ef-8f4d-4cb3-a2a9-1e1e7fd455ec'
+	fromColumn: Budgets.'Period End Date'
+	toColumn: Calendar.Date
+
+relationship '4046155f-bfb2-435e-8892-b85a9fb8fc41'
+	fromColumn: Actuals.XAccountId
+	toColumn: XAccount.XAccountId
+
+relationship '873ef171-affb-4658-a0a8-85b892e9a59e'
+	fromColumn: Actuals.SecurityId
+	toCardinality: Many
+	toColumn: UserGroupSecurity.SecurityId
+
+relationship '4a83e017-f2d8-4bad-90ff-d5b7653485ad'
+	fromColumn: UserGroupSecurity.UserGroupId
+	securityFilteringBehavior: None
+	toCardinality: Many
+	toColumn: User.UserGroupId
+
+relationship '44ff0929-5880-411f-b889-b8a112e16243'
+	fromColumn: Budgets.SecurityId
+	toCardinality: Many
+	toColumn: UserGroupSecurity.SecurityId
+
+relationship '673ede1b-cfba-4b2f-a970-2949901da271'
+	fromColumn: Forecasts.SecurityId
+	toCardinality: Many
+	toColumn: UserGroupSecurity.SecurityId
+
+relationship 'c1da00d8-8c98-47a8-b890-509302e40b61'
+	fromColumn: Commitments.AccountId
+	toColumn: Account.AccountId
+
+relationship 'df1c227d-2d5b-4c0a-964d-947ebfc2dd89'
+	fromColumn: Commitments.CommitmentDocumentId
+	toColumn: 'Purchase Order Doc'.CommitmentDocumentId
+
+relationship '3f8ea753-1002-4d1e-9a54-c7234f751152'
+	fromColumn: Commitments.NominalId
+	toColumn: Nominal.NominalId
+
+relationship 'ebf3b51b-af85-4cdd-a2da-2515de99943a'
+	fromColumn: Commitments.PeriodEndDate
+	toColumn: Calendar.Date
+
+relationship '4d8ba200-99e9-4b5a-8623-6f0ad2f6cc28'
+	fromColumn: Commitments.SecurityId
+	toCardinality: Many
+	toColumn: UserGroupSecurity.SecurityId
+
+relationship 'bb972c9b-bb11-41d8-8366-3b1934a8b0dc'
+	fromColumn: Actuals.AgedDocumentId
+	toColumn: 'Document Ages'.AgedDocumentId
+
+relationship 'af40b400-7dce-4e87-9073-60ec9fce509a'
+	fromColumn: Actuals.AccountLocationId
+	toColumn: 'Location (Account)'.AccountLocationId
+
+relationship '0660dd54-0e51-48fd-966f-6ed02bceb13e'
+	fromColumn: Budgets.AccountLocationId
+	toColumn: 'Location (Account)'.AccountLocationId
+
+relationship '4de77476-a333-491b-9ef4-9db6e6245f73'
+	fromColumn: Forecasts.AccountLocationId
+	toColumn: 'Location (Account)'.AccountLocationId
+
+relationship '14db36f9-e0eb-48e1-8e86-51852a3565c8'
+	fromColumn: Commitments.AccountLocationId
+	toColumn: 'Location (Account)'.AccountLocationId
+
+relationship '8462f4ac-07c9-41e7-bb5d-fb3615645c4f'
+	fromColumn: Actuals.NominalLocationId
+	toColumn: 'Location (Nominal)'.NominalLocationId
+
+relationship '6d1f6510-c9bf-4690-88dd-63b50c0daea3'
+	fromColumn: Budgets.NominalLocationId
+	toColumn: 'Location (Nominal)'.NominalLocationId
+
+relationship '6f4e360b-8c3d-407c-8e22-4453db12a8d6'
+	fromColumn: Forecasts.NominalLocationId
+	toColumn: 'Location (Nominal)'.NominalLocationId
+
+relationship 'f720d1ca-8dbe-4226-92d0-656244eb7091'
+	fromColumn: Commitments.NominalLocationId
+	toColumn: 'Location (Nominal)'.NominalLocationId
+
+relationship 'bc9c8528-c982-484d-aaed-20b02ca7e7ea'
+	fromColumn: Students.'End of Month'
+	toCardinality: Many
+	toColumn: Calendar.'End of Month'
+
+relationship '2ab36c91-02ba-485e-8349-0224f221e65f'
+	fromColumn: Students.LocationId
+	toColumn: 'Location (Account)'.AccountLocationId
+
+relationship 'f32dff94-8263-426a-ba3e-62ddd918ef8c'
+	fromColumn: Students.LocationId
+	toColumn: 'Location (Nominal)'.NominalLocationId
+

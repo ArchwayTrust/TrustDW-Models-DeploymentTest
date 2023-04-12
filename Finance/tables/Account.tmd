@@ -1,0 +1,88 @@
+table Account
+	ordinal: 1
+
+	partition Account = M
+		mode: Import
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "fin", Item = "Dim_Accounts"]}[Data]
+			in
+			  Nav
+
+		queryGroup: 'Finance\Dimensions'
+
+	column 'Account Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Account Code"
+		summarizeBy: None
+
+	column 'Account Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Account Name"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="Text" />
+
+	column AccountId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: AccountId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column AccountViewRole
+		dataType: String
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountViewRole
+		summarizeBy: None
+
+	column Directorate
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: Directorate
+
+	column 'Ledger Code'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Ledger Code"
+		summarizeBy: None
+
+	column 'Ledger Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Ledger Name"
+		summarizeBy: None
+
+	column 'Ledger Type'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Ledger Type"
+		summarizeBy: None
+
+	column LedgerViewRole
+		dataType: String
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: LedgerViewRole
+		summarizeBy: None
+

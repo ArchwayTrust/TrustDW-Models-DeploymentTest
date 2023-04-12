@@ -1,0 +1,39 @@
+/// Table containing measure meta data.
+table 'Measure Details'
+	isHidden
+	ordinal: 16
+
+	partition 'Measure Details' = M
+		expression:=
+			let
+			    Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			    Nav = Source{[Schema = "fin", Item = "Helper_Measures"]}[Data]
+			in
+			  Nav
+
+
+	column 'Allow Scale Change'
+		dataType: Boolean
+		isDataTypeInferred: false
+		sourceColumn: "Allow Scale Change"
+
+	column 'Allow Sign Change'
+		dataType: Boolean
+		isDataTypeInferred: false
+		sourceColumn: "Allow Sign Change"
+
+	column Description
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: Description
+
+	column 'Measure Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Measure Name"
+
+	column 'Measure Table'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Measure Table"
+

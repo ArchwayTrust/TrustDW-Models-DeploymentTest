@@ -1,0 +1,42 @@
+/// Analytics model using data from PSF.
+model Finance
+	compatibilityLevel: 1601
+	culture: en-GB
+	dataAccessOptions:
+	defaultPowerBIDataSourceVersion: PowerBI_V3
+	discourageImplicitMeasures
+	ID: 139ae211-cd26-463a-8df7-9eb0f09c5d75
+	sourceQueryCulture: en-GB
+
+queryGroup Conformed
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup Finance
+
+	annotation PBI_QueryGroupOrder = 1
+
+queryGroup 'Finance\Dimensions'
+
+	annotation PBI_QueryGroupOrder = 0
+
+queryGroup 'Finance\Facts'
+
+	annotation PBI_QueryGroupOrder = 1
+
+annotation BestPracticeAnalyzer_IgnoreRules = {"RuleIDs":[]}
+
+annotation BestPracticeAnalyzer_ExternalRuleFiles = ["C:\\Users\\bdobbs\\Downloads\\BPARules-standard.json"]
+
+annotation TabularEditor_SerializeOptions = {"IgnoreInferredObjects":true,"IgnoreInferredProperties":true,"IgnoreTimestamps":true,"SplitMultilineStrings":true,"PrefixFilenames":false,"LocalTranslations":true,"LocalPerspectives":true,"LocalRelationships":true,"Levels":["Data Sources","Shared Expressions","Perspectives","Relationships","Roles","Tables","Tables/Columns","Tables/Hierarchies","Tables/Measures","Tables/Partitions","Tables/Calculation Items","Translations"]}
+
+extendedProperty TabularEditor_DeploymentMetadata =
+	{
+	  "User": "BCA\\bdobbs",
+	  "Time": "2023-02-20T14:46:35.536326+00:00",
+	  "ClientMachine": "ALT-LAP-S44831",
+	  "DeploymentMode": "SaveUI",
+	  "TabularEditorBuild": "3.4.8440.26878"
+	}
+
+

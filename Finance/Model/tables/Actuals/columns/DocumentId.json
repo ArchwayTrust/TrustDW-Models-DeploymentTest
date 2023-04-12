@@ -1,9 +1,0 @@
-{
-  "name": "DocumentId",
-  "dataType": "int64",
-  "isHidden": true,
-  "sourceColumn": "DocumentId",
-  "isAvailableInMdx": false,
-  "encodingHint": "value",
-  "summarizeBy": "none"
-}

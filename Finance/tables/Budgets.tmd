@@ -1,0 +1,209 @@
+/// Budget data from PSF. 
+/// Only pulls through budget infromation for codes which don't contain FC or FOR.
+table Budgets
+	ordinal: 6
+
+	partition Budgets = M
+		mode: Import
+		expression:=
+			let
+			    Source = Sql.Databases("core-sys-dw01"),
+			    DB = Source{[Name="ALT-DW"]}[Data],
+			    SQL = Value.NativeQuery(
+			            DB,
+			            "SELECT
+			                b.NominalLocationId,
+			                b.AccountLocationId,
+			                b.NominalId,
+			                b.AccountId,
+			                b.BudgetNameId,
+			                b.[Period End Date],
+			                b.SecurityId,
+			                b.AuditId,
+			                b.[Value]
+			            FROM fin.Fact_Budgets AS b
+			            INNER JOIN fin.Dim_BudgetNames AS n ON b.BudgetNameId = n.BudgetNameId 
+			            WHERE NOT (n.[Budget Code] LIKE '%FC%'
+			                OR n.[Budget Code] LIKE '%FOR%')" ,
+			            null,
+			            [EnableFolding = true]
+			  )
+			in
+			    SQL
+
+		queryGroup: 'Finance\Facts'
+
+	/// Sum of budget values from PSF. 
+	/// (Not division of year end)
+	measure Budget =
+		VAR _Budget = SUM( Budgets[Value] )
+		
+		VAR _BudgetDisplay =
+		    IF(
+		        ISFILTERED( 'Actual Description' ) || ISFILTERED ( XAccount ),
+		        BLANK( ),
+		        _Budget
+		    )
+		
+		RETURN _BudgetDisplay
+
+		formatString:= #,##0.00
+
+	measure 'Budgets Exist' = INT( NOT ( ISEMPTY( 'Budgets' ) ) )
+		displayFolder: "Slicer Filters"
+		formatString:= #,##0
+
+	measure 'YE Budget' =
+		VAR _SelectedAcYear = VALUES( Calendar[Academic Year] )
+		VAR _YEBudget =
+		    CALCULATE(
+		        SUM( Budgets[Value] ),
+		        REMOVEFILTERS( Calendar ),
+		        _SelectedAcYear
+		    )
+		VAR _Result =
+		    IF(
+		        ISFILTERED( 'Actual Description' ),
+		        BLANK( ),
+		        _YEBudget
+		    )
+		RETURN
+		    _Result
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	/// YE Budget with a simple 1/12th scaling per month applied.
+	measure 'YTD Budget' =
+		VAR _LatestVisibleMonthEnd = MAX( Calendar[End of Month] )
+		VAR _LatestVisibleFY = MAX ( Calendar[Financial Year] )
+		VAR _VisibleMonths = 
+		    CALCULATE(
+		        DISTINCTCOUNT( Calendar[End of Month] ),
+		        REMOVEFILTERS ( Calendar ),
+		        Calendar[Financial Year] = _LatestVisibleFY,
+		        Calendar[End of Month] <= _LatestVisibleMonthEnd
+		    )
+		
+		
+		VAR _YTDBudget = 
+		    DIVIDE( [YE Budget] * _VisibleMonths, 12 )
+		    
+		RETURN
+		    _YTDBudget
+
+		displayFolder: "Time Intelligence"
+		formatString:= #,##0.00
+
+	column AccountId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column AccountLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AccountLocationId
+
+	column AuditId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: AuditId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column BudgetNameId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: BudgetNameId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column NominalId
+		dataType: Int64
+		encodingHint: Value
+		formatString:= 0
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalId
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation Format = <Format Format="NumberWhole" Accuracy="0" />
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column NominalLocationId
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: NominalLocationId
+
+	column 'Period End Date'
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= Long Date
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: "Period End Date"
+		summarizeBy: None
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+		annotation Format = <Format Format="DateTimeGeneralPattern"><DateTimes><DateTime LCID="2057" Group="LongDate" FormatString="D" /></DateTimes></Format>
+
+		annotation PBI_ChangedProperties = ["IsHidden"]
+
+	column SecurityId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: SecurityId
+
+	column Value
+		dataType: Decimal
+		encodingHint: Value
+		formatString:= #,##0.00
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Value
+		summarizeBy: None
+

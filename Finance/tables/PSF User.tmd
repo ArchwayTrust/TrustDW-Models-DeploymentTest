@@ -1,0 +1,107 @@
+table 'PSF User'
+	isHidden
+	ordinal: 18
+
+	partition 'PSF User' = M
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "fin", Item = "Dim_PSFUsers"]}[Data]
+			in
+			  Nav
+
+
+	measure 'Number of Active Users' =
+		COUNTROWS ( 'PSF User' )
+		
+
+		formatString:= #,##0
+
+	measure 'Number of Users Who Have More Recent Activity' =
+		VAR MaxVisibleDate = MAX ( 'Calendar'[Date] )
+		RETURN
+		    CALCULATE (
+		        COUNTROWS ( 'PSF User' ),
+		        'Calendar'[Date] >= MaxVisibleDate
+		    )
+
+		formatString:= #,##0
+
+	measure 'User Slicer Filter' = INT ( NOT ( ISEMPTY ( 'PSF User') ) )
+		formatString:= #,##0
+
+	column 'Account Inf PersonId'
+		dataType: Int64
+		encodingHint: Value
+		isDataTypeInferred: false
+		sourceColumn: "Account Inf PersonId"
+		summarizeBy: None
+
+	column Active
+		dataType: Boolean
+		isDataTypeInferred: false
+		sourceColumn: Active
+		summarizeBy: None
+
+	column Email
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: Email
+		summarizeBy: None
+
+	column 'Employee No'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Employee No"
+		summarizeBy: None
+
+	column 'Latest PSF Use'
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		sourceColumn: "Latest PSF Use"
+		summarizeBy: None
+
+	column 'Leaving Date'
+		dataType: DateTime
+		encodingHint: Value
+		formatString:= dd/mm/yyyy
+		isDataTypeInferred: false
+		sourceColumn: "Leaving Date"
+		summarizeBy: None
+
+	column 'Office 365 Email'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Office 365 Email"
+		summarizeBy: None
+
+	column 'Old Account No PersonId'
+		dataType: Boolean
+		isDataTypeInferred: false
+		sourceColumn: "Old Account No PersonId"
+		summarizeBy: None
+
+	column 'PSF User Name'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "PSF User Name"
+		summarizeBy: None
+
+	column PSFUserId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		sourceColumn: PSFUserId
+		summarizeBy: None
+
+	column 'Static Account'
+		dataType: Boolean
+		isDataTypeInferred: false
+		sourceColumn: "Static Account"
+		summarizeBy: None
+

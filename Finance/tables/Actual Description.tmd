@@ -1,0 +1,33 @@
+/// Line descriptions for each actual.
+table 'Actual Description'
+	ordinal: 2
+
+	partition 'Actual Description' = M
+		mode: Import
+		expression:=
+			let
+			  Source = Sql.Database("core-sys-dw01", "ALT-DW"),
+			  Nav = Source{[Schema = "fin", Item = "Dim_ActualDescriptions"]}[Data]
+			in
+			  Nav
+
+		queryGroup: 'Finance\Dimensions'
+
+	column 'Actual Description'
+		dataType: String
+		isDataTypeInferred: false
+		sourceColumn: "Actual Description"
+		summarizeBy: None
+
+	column ActualDescriptionId
+		dataType: Int64
+		encodingHint: Value
+		isAvailableInMDX: false
+		isDataTypeInferred: false
+		isHidden
+		isKey
+		isNullable: false
+		isUnique
+		sourceColumn: ActualDescriptionId
+		summarizeBy: None
+

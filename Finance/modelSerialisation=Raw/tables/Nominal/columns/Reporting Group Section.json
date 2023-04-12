@@ -1,8 +1,0 @@
-{
-  "name": "Reporting Group Section",
-  "dataType": "string",
-  "sourceColumn": "Reporting Group Section",
-  "sortByColumn": "Reporting Group Section Order",
-  "displayFolder": "Management Account Sections",
-  "summarizeBy": "none"
-}

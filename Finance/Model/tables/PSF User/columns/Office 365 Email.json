@@ -1,6 +1,0 @@
-{
-  "name": "Office 365 Email",
-  "dataType": "string",
-  "sourceColumn": "Office 365 Email",
-  "summarizeBy": "none"
-}

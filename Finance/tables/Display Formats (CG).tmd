@@ -1,0 +1,142 @@
+table 'Display Formats (CG)'
+	ordinal: 9
+
+	partition Partition = CalculationGroup
+		mode: Import
+
+	calculationGroup
+		precedence: 10
+
+		calculationItem 'Raw PSF' = SELECTEDMEASURE()
+
+		calculationItem 'Apply sign changes and show as 1000s' =
+			VAR _MeasureName = SELECTEDMEASURENAME()
+			VAR _MeasureValue = SELECTEDMEASURE()
+			
+			VAR _Ignore = 
+			        CALCULATE (
+			            ISEMPTY ( 'Measure Details' ),
+			            'Measure Details'[Measure Name] = _MeasureName,
+			            'Measure Details'[Allow Sign Change]
+			        )
+			
+			VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )
+			
+			VAR _Result = 
+			    IF(
+			        _Ignore,
+			        _MeasureValue,
+			        _MeasureValue * _DisplayMultiplier
+			    )
+			
+			RETURN _Result
+
+
+			formatStringDefinition =
+				VAR _MeasureName = SELECTEDMEASURENAME()
+				VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()
+				
+				
+				VAR _Ignore = 
+				         CALCULATE (
+				            ISEMPTY ( 'Measure Details' ),
+				            'Measure Details'[Measure Name] = _MeasureName,
+				            'Measure Details'[Allow Scale Change]
+				        )
+				   
+				VAR _CorrectMagnitude = 
+				    IF(
+				        _Ignore,
+				        _MeasureFormat,
+				        "#,0,"
+				    )
+				
+				RETURN _CorrectMagnitude
+
+
+		calculationItem 'Apply sign changes' =
+			VAR _MeasureName = SELECTEDMEASURENAME()
+			VAR _MeasureValue = SELECTEDMEASURE()
+			
+			VAR _Ignore = 
+			        CALCULATE (
+			            ISEMPTY ( 'Measure Details' ),
+			            'Measure Details'[Measure Name] = _MeasureName,
+			            'Measure Details'[Allow Sign Change]
+			        )                   
+			
+			VAR _DisplayMultiplier = SELECTEDVALUE ( Nominal[Display Multiplier], -1 )
+			
+			VAR _Result = 
+			    IF(
+			        _Ignore,
+			        _MeasureValue,
+			        _MeasureValue * _DisplayMultiplier
+			    )
+			
+			RETURN _Result
+
+
+		calculationItem 'Invert PSF' =
+			VAR _MeasureName = SELECTEDMEASURENAME()
+			VAR _MeasureValue = SELECTEDMEASURE()
+			
+			VAR _Ignore = 
+			        CALCULATE (
+			            ISEMPTY ( 'Measure Details' ),
+			            'Measure Details'[Measure Name] = _MeasureName,
+			            'Measure Details'[Allow Sign Change]
+			        )
+			                    
+			RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)
+
+
+		calculationItem 'Invert PSF and show as 1000s' =
+			VAR _MeasureName = SELECTEDMEASURENAME()
+			VAR _MeasureValue = SELECTEDMEASURE()
+			
+			VAR _Ignore = 
+			        CALCULATE (
+			            ISEMPTY ( 'Measure Details' ),
+			            'Measure Details'[Measure Name] = _MeasureName,
+			            'Measure Details'[Allow Sign Change]
+			        )
+			                    
+			RETURN IF( _Ignore, _MeasureValue, _MeasureValue * -1)
+
+
+			formatStringDefinition =
+				VAR _MeasureName = SELECTEDMEASURENAME()
+				VAR _MeasureFormat = SELECTEDMEASUREFORMATSTRING()
+				
+				
+				VAR _Ignore = 
+				         CALCULATE (
+				            ISEMPTY ( 'Measure Details' ),
+				            'Measure Details'[Measure Name] = _MeasureName,
+				            'Measure Details'[Allow Scale Change]
+				        )
+				   
+				VAR _CorrectMagnitude = 
+				    IF(
+				        _Ignore,
+				        _MeasureFormat,
+				        "#,0,"
+				    )
+				
+				RETURN _CorrectMagnitude
+
+
+	/// Add this into the filter pane for the visual or page.
+	column 'Display Format'
+		dataType: String
+		isDataTypeInferred: false
+		sortByColumn: Ordinal
+		sourceColumn: Name
+
+	column Ordinal
+		dataType: Int64
+		isDataTypeInferred: false
+		isHidden
+		sourceColumn: Ordinal
+

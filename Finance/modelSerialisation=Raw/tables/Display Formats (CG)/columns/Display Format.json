@@ -1,7 +1,0 @@
-{
-  "name": "Display Format",
-  "dataType": "string",
-  "description": "Add this into the filter pane for the visual or page.",
-  "sourceColumn": "Name",
-  "sortByColumn": "Ordinal"
-}
