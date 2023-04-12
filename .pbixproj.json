@@ -20,7 +20,7 @@
         }
       },
       "environments": {
-        "UAT": {
+        "PROD": {
           "workspace": "DeploymentTest"
         }
       }

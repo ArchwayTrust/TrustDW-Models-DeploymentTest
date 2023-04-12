@@ -40,7 +40,7 @@ table Actuals
 		RETURN _Result
 
 		displayFolder: "Team Metrics"
-		formatString:= #,##0.0 %
+		formatString:= #,##0.00 %
 
 	measure '% of POINS with Later REQs' =
 		VAR _tblDocs = 
