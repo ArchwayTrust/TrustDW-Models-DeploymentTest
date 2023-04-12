@@ -4,7 +4,7 @@
       "mode": "Dataset",
       "source": {
         "type": "Folder",
-        "path": "./*"
+        "path": "./Finance/"
       },
       "authentication": {
         "type": "ServicePrincipal",
