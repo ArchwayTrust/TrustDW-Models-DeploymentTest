@@ -83,10 +83,7 @@ table Actuals
 		formatString:= #,##0.0 %
 
 	/// Sum of actual values from PSF.
-	measure Actual =
-		SUM( Actuals[Value] )
-		
-
+	measure Actual = SUM( Actuals[Value] )
 		formatString:= #,##0.00
 
 	measure 'Actuals and Budgets Exist' = INT( NOT ( ISEMPTY( Actuals ) && ISEMPTY( Budgets ) ) )
@@ -104,7 +101,6 @@ table Actuals
 		    MAX( Audit[Extraction Date Time] ),
 		    TREATAS( DISTINCT( Actuals[AuditId] ), Audit[AuditId] )
 		)
-		
 
 		formatString:= dd-mm-yyyy hh:nn
 
@@ -169,15 +165,11 @@ table Actuals
 		    [Actual], 
 		    DATESYTD( Calendar[Date], "31-Aug" )
 		)
-		
 
 		displayFolder: "Time Intelligence"
 		formatString:= #,##0.00
 
-	measure 'YTD Variance' =
-		[YTD Budget] - [YTD Actual]
-		
-
+	measure 'YTD Variance' = [YTD Budget] - [YTD Actual]
 		displayFolder: "Time Intelligence"
 		formatString:= #,##0.00
 

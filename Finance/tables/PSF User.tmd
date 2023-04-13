@@ -11,10 +11,7 @@ table 'PSF User'
 			  Nav
 
 
-	measure 'Number of Active Users' =
-		COUNTROWS ( 'PSF User' )
-		
-
+	measure 'Number of Active Users' = COUNTROWS ( 'PSF User' )
 		formatString:= #,##0
 
 	measure 'Number of Users Who Have More Recent Activity' =

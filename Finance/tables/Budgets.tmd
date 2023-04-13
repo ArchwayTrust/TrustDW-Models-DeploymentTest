@@ -1,4 +1,4 @@
-/// Budget data from PSF. 
+/// Budget data from PSF.
 /// Only pulls through budget infromation for codes which don't contain FC or FOR.
 table Budgets
 	ordinal: 6
@@ -33,7 +33,7 @@ table Budgets
 
 		queryGroup: 'Finance\Facts'
 
-	/// Sum of budget values from PSF. 
+	/// Sum of budget values from PSF.
 	/// (Not division of year end)
 	measure Budget =
 		VAR _Budget = SUM( Budgets[Value] )
